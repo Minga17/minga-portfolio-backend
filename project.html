@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<hea>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minga Ngolo — Projects & Build Log</title>
+  <title>Minga Ngolo, Projects and Build Log</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Minga Ngolo project log 6 completed data projects analysing over 891,406 rows. Python, SQL, Power BI, Machine Learning. Open to junior analyst roles." />
+  <meta name="author" content="Minga Ngolo" />
+  <meta property="og:title" content="Minga Ngolo, Projects and Build Log" />
+  <meta property="og:description" content="6 data projects. 891,406 rows analysed. Python, SQL, Power BI. Real work, real findings." />
+  <meta property="og:url" content="https://portfolio.mingangolo.com/project.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://portfolio.mingangolo.com/images/dashboard.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -864,6 +873,14 @@
     }
     .stack-section-label:first-of-type { margin-top: 0; }
 
+    /* Scroll progress bar */
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--amber), var(--gold)); width: 0%; z-index: 9999; transition: width 0.1s linear; }
+
+    /* Back to top */
+    #back-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 50%; background: var(--amber); color: var(--ink); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 200; box-shadow: 0 4px 20px rgba(212,130,10,0.35); }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-3px); background: var(--gold); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       nav, .page-hero, .stats-bar, .filter-bar,
@@ -895,6 +912,8 @@
 </head>
 
 <body>
+  <div id="scroll-bar"></div>
+  <button id="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
   <!-- NAV -->
   <nav>
@@ -903,12 +922,11 @@
       <li><a href="/">Profile</a></li>
       <li><a href="/#skills">Skills</a></li>
       <li><a href="/#vision">Vision</a></li>
-      <li><a href="project.html" class="active">Projects</a></li>
+      <li><a href="/project.html" class="active">Projects</a></li>
     </ul>
     <div class="nav-social">
       <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://www.linkedin.com/in/minga17" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
   </nav>
 
@@ -917,7 +935,7 @@
     <div class="hero-eyebrow fade-in">The Build Log</div>
     <h1 class="fade-in">Every Project.<br><em>Every Step.</em><br>All of It Here.</h1>
     <p class="fade-in">
-      This is my living record: a log of everything I build on the road
+      This is my living record a log of everything I build on the road
       to my goals. Data projects, web work, and everything in between.
       It starts here. Over time, it becomes proof that the work was real.
     </p>
@@ -1023,7 +1041,7 @@
         <div class="timeline-date">2023</div>
         <div class="timeline-content">
           <h4>The Decision</h4>
-          <p>Made the commitment to pursue software development and IT. Picked up HTML for the first time and started building, not just watching tutorials, but actually making things.</p>
+          <p>Made the commitment to pursue software development and IT. Picked up HTML for the first time and started building not just watching tutorials, but actually making things.</p>
         </div>
       </div>
 
@@ -1032,7 +1050,7 @@
         <div class="timeline-date">Aug 2025</div>
         <div class="timeline-content">
           <h4>First Real Project</h4>
-          <p>Built the Soccer Term Website, my first complete HTML project. Wrote every tag by hand. Learned what it feels like to create something that lives in a browser.</p>
+          <p>Built the Soccer Term Website my first complete HTML project. Wrote every tag by hand. Learned what it feels like to create something that lives in a browser.</p>
         </div>
       </div>
 
@@ -1041,7 +1059,7 @@
         <div class="timeline-date">Dec 2025</div>
         <div class="timeline-content">
           <h4>Identity on the Web</h4>
-          <p>Completed my Personal Web Page and Dev Daily Plan app. Started levelling up into React, JSX, and Tailwind CSS, modern tools used by real developers.</p>
+          <p>Completed my Personal Web Page and Dev Daily Plan app. Started levelling up into React, JSX, and Tailwind CSS modern tools used by real developers.</p>
         </div>
       </div>
 
@@ -1050,7 +1068,7 @@
         <div class="timeline-date">2026</div>
         <div class="timeline-content">
           <h4>The Data Pivot</h4>
-          <p>Pivoted into data analysis. Learning Python, Pandas, SQL, and visualization. Building real projects with real datasets. The goal is clear: analyst role, then data scientist. The work starts now.</p>
+          <p>Pivoted into data analysis. Learning Python, Pandas, SQL, and visualization. Building real projects with real datasets. The goal is clear. Analyst role first, then data scientist. The work starts now.</p>
         </div>
       </div>
 
@@ -1062,7 +1080,7 @@
     <div class="section-eyebrow">Tools of the Trade</div>
     <h3 class="section-heading">My Tech<br><em>Stack</em></h3>
 
-    <p class="stack-section-label">Data Tools & Primary Focus</p>
+    <p class="stack-section-label">Data Tools: Primary Focus</p>
     <div class="stack-grid">
 
       <div class="stack-card data-tool fade-in">
@@ -1112,7 +1130,7 @@
 
     </div>
 
-    <p class="stack-section-label">Web Development Foundation</p>
+    <p class="stack-section-label">Web Development: Foundation</p>
     <div class="stack-grid">
 
       <div class="stack-card fade-in">
@@ -1176,13 +1194,14 @@
   <footer>
     <div>
       <a href="/" class="footer-logo">Minga <span>Ngolo</span></a>
-      <div class="footer-tagline">Aspiring Data Analyst · Builder · Zimbabwe → USA → Data</div>
+      <div class="footer-tagline">DRC · Zimbabwe · USA — Building with Data</div>
       <div class="footer-social">
-        <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
         <a href="https://github.com/Minga17" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="https://www.kaggle.com/minga17" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a>
+        <a href="https://www.kaggle.com/mingangolo" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a>
+        <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
       </div>
+      <div style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;color:rgba(245,240,232,0.2);margin-top:0.6rem;">Last updated · June 2026</div>
     </div>
     <a href="/" class="footer-back">
       <i class="fa-solid fa-arrow-left"></i> Back to Profile
@@ -1190,7 +1209,21 @@
   </footer>
 
   <script>
-    // ── Fade-in observer ──
+    // Scroll progress bar
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      scrollBar.style.width = pct + '%';
+    });
+
+    // Back to top
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Fade-in observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.05 });
