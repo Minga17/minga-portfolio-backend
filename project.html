@@ -6,7 +6,7 @@
   <title>Minga Ngolo, Projects and Build Log</title>
 
   <!-- SEO -->
-  <meta name="description" content="Minga Ngolo project log 6 completed data projects analysing over 891,406 rows. Python, SQL, Power BI, Machine Learning. Open to junior analyst roles." />
+  <meta name="description" content="Minga Ngolo project log — 6 completed data projects analysing over 891,406 rows. Python, SQL, Power BI, Machine Learning. Open to junior analyst roles." />
   <meta name="author" content="Minga Ngolo" />
   <meta property="og:title" content="Minga Ngolo, Projects and Build Log" />
   <meta property="og:description" content="6 data projects. 891,406 rows analysed. Python, SQL, Power BI. Real work, real findings." />
@@ -284,6 +284,8 @@
     .project-card.status-done::before    { background: var(--amber); }
     .project-card.status-active::before  { background: var(--gold); }
     .project-card.status-planned::before { background: var(--muted); opacity: 0.5; }
+    .rows-badge { margin-top: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: rgba(212,130,10,0.08); border: 1px solid rgba(212,130,10,0.25); padding: 0.3rem 0.7rem; border-radius: 100px; }
+    .rows-badge i { font-size: 0.65rem; }
 
     .project-card::after {
       content: '';
@@ -935,7 +937,7 @@
     <div class="hero-eyebrow fade-in">The Build Log</div>
     <h1 class="fade-in">Every Project.<br><em>Every Step.</em><br>All of It Here.</h1>
     <p class="fade-in">
-      This is my living record a log of everything I build on the road
+      This is my living record — a log of everything I build on the road
       to my goals. Data projects, web work, and everything in between.
       It starts here. Over time, it becomes proof that the work was real.
     </p>
@@ -1024,7 +1026,7 @@
       <div class="quote-mark">"</div>
       <blockquote>
         I am not waiting to be ready.<br>
-        I am <em>becoming</em> ready one build at a time.
+        I am <em>becoming</em> ready — one build at a time.
       </blockquote>
       <div class="quote-attr">— Minga Ngolo</div>
     </div>
@@ -1041,7 +1043,7 @@
         <div class="timeline-date">2023</div>
         <div class="timeline-content">
           <h4>The Decision</h4>
-          <p>Made the commitment to pursue software development and IT. Picked up HTML for the first time and started building not just watching tutorials, but actually making things.</p>
+          <p>Made the commitment to pursue software development and IT. Picked up HTML for the first time and started building — not just watching tutorials, but actually making things.</p>
         </div>
       </div>
 
@@ -1050,7 +1052,7 @@
         <div class="timeline-date">Aug 2025</div>
         <div class="timeline-content">
           <h4>First Real Project</h4>
-          <p>Built the Soccer Term Website my first complete HTML project. Wrote every tag by hand. Learned what it feels like to create something that lives in a browser.</p>
+          <p>Built the Soccer Term Website — my first complete HTML project. Wrote every tag by hand. Learned what it feels like to create something that lives in a browser.</p>
         </div>
       </div>
 
@@ -1059,7 +1061,7 @@
         <div class="timeline-date">Dec 2025</div>
         <div class="timeline-content">
           <h4>Identity on the Web</h4>
-          <p>Completed my Personal Web Page and Dev Daily Plan app. Started levelling up into React, JSX, and Tailwind CSS modern tools used by real developers.</p>
+          <p>Completed my Personal Web Page and Dev Daily Plan app. Started levelling up into React, JSX, and Tailwind CSS — modern tools used by real developers.</p>
         </div>
       </div>
 
@@ -1080,7 +1082,7 @@
     <div class="section-eyebrow">Tools of the Trade</div>
     <h3 class="section-heading">My Tech<br><em>Stack</em></h3>
 
-    <p class="stack-section-label">Data Tools: Primary Focus</p>
+    <p class="stack-section-label">Data Tools — Primary Focus</p>
     <div class="stack-grid">
 
       <div class="stack-card data-tool fade-in">
@@ -1130,7 +1132,7 @@
 
     </div>
 
-    <p class="stack-section-label">Web Development: Foundation</p>
+    <p class="stack-section-label">Web Development — Foundation</p>
     <div class="stack-grid">
 
       <div class="stack-card fade-in">
@@ -1284,6 +1286,11 @@
       const bClass   = { done: 'badge-done',  active: 'badge-active',  planned: 'badge-planned'  }[p.status] || 'badge-planned';
       const bText    = { done: 'Completed',   active: 'In Progress',   planned: 'Planned'         }[p.status] || 'Planned';
 
+      // Find rows/scale badge from tags — looks for tags containing digits
+      const rowTag = (p.tags || []).find(t => /[\d,]+\s*(rows|matches|titles|records|transactions)/i.test(t));
+      const rowsBadge = rowTag && p.status === 'done'
+        ? `<div class="rows-badge"><i class="fa-solid fa-database"></i> ${rowTag}</div>` : '';
+
       const insightsHtml = p.insights && p.insights.length
         ? `<div class="insights-box">
             <div class="insights-label">⚡ Key Insights</div>
@@ -1312,6 +1319,7 @@
             <div class="project-date">${p.date || ''}</div>
             ${p.date_sub ? `<div class="project-date-sub">${p.date_sub}</div>` : ''}
             <span class="project-status-badge ${bClass}">${bText}</span>
+            ${rowsBadge}
           </div>
           <div class="project-body">
             <div class="project-category">${p.category || ''}</div>

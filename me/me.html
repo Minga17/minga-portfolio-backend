@@ -1,0 +1,2850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minga Ngolo — Data Analyst Portfolio</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="/static/js/api.js"></script>
+  <style>
+    :root {
+      --ink:    #0f0e0d;
+      --cream:  #f5f0e8;
+      --amber:  #d4820a;
+      --gold:   #f0b429;
+      --rust:   #c04e2a;
+      --sage:   #4a6c5e;
+      --paper:  #faf7f2;
+      --muted:  #7a7265;
+      --border: rgba(212,130,10,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 1.125rem;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a1814; }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 9px; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(15,14,13,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+    .page-hero { padding: 13rem 6rem 6rem; max-width: 1300px; margin: 0 auto; position: relative; }
+    .page-hero::after { content: 'DATA'; position: absolute; right: 4rem; top: 8rem; font-family: 'DM Serif Display', serif; font-size: 10rem; color: rgba(212,130,10,0.04); letter-spacing: -0.04em; line-height: 1; pointer-events: none; user-select: none; }
+    .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--amber); }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1.0; color: var(--cream); letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+    .page-hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-tagline { font-size: 1.2rem; color: rgba(245,240,232,0.55); max-width: 540px; line-height: 1.85; margin-bottom: 2.5rem; font-style: italic; }
+    .hero-three-words { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .word-pill { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.35); color: var(--amber); background: rgba(212,130,10,0.08); }
+    .section-wrap { max-width: 1300px; margin: 0 auto; padding: 5rem 6rem; position: relative; border-top: 1px solid rgba(212,130,10,0.08); }
+    .section-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--amber); }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 1.8rem; }
+    h2 em { color: var(--gold); font-style: italic; }
+    .body-text { font-size: 1.1rem; color: rgba(245,240,232,0.6); max-width: 700px; line-height: 1.85; margin-bottom: 1.1rem; }
+    .body-text strong { color: var(--cream); font-weight: 400; }
+    .large-text { font-size: 1.3rem; color: rgba(245,240,232,0.7); max-width: 700px; line-height: 1.8; margin-bottom: 1.4rem; }
+    blockquote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.65rem); line-height: 1.55; color: var(--cream); border-left: 3px solid var(--amber); padding-left: 1.6rem; margin: 2.5rem 0; max-width: 640px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+    .card { padding: 2rem; border: 1px solid rgba(212,130,10,0.14); border-radius: 10px; background: rgba(255,255,255,0.025); position: relative; overflow: hidden; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
+    .card:hover { border-color: rgba(212,130,10,0.4); background: rgba(255,255,255,0.045); transform: translateY(-3px); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--amber); }
+    .card::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle, rgba(212,130,10,0.07) 0%, transparent 70%); pointer-events: none; }
+    .card-icon { font-size: 1.4rem; margin-bottom: 0.9rem; }
+    .card h3 { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.6rem; }
+    .card p { font-size: 0.98rem; color: rgba(245,240,232,0.5); line-height: 1.7; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+    .tag { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid rgba(212,130,10,0.2); border-radius: 4px; color: rgba(245,240,232,0.42); }
+    .row-list { list-style: none; margin-top: 1.8rem; }
+    .row-list li { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(212,130,10,0.1); font-size: 1.05rem; color: rgba(245,240,232,0.58); line-height: 1.7; }
+    .row-list li:last-child { border-bottom: none; }
+    .row-num { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; color: var(--amber); letter-spacing: 0.1em; min-width: 22px; padding-top: 4px; flex-shrink: 0; }
+    .highlight-box { background: rgba(212,130,10,0.06); border: 1px solid rgba(212,130,10,0.2); border-radius: 10px; padding: 2rem 2.5rem; margin-top: 2rem; }
+    .highlight-box p { font-size: 1.05rem; color: rgba(245,240,232,0.6); line-height: 1.75; margin-bottom: 0.8rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    .highlight-box strong { color: var(--cream); }
+    .timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: 3rem; position: relative; }
+    .timeline::before { content: ''; position: absolute; top: 27px; left: 16.6%; right: 16.6%; height: 1px; background: linear-gradient(to right, var(--amber), var(--gold), var(--sage)); opacity: 0.35; }
+    .timeline-item { text-align: center; padding: 0 1rem; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; margin: 20px auto 20px; position: relative; z-index: 1; }
+    .timeline-dot.past { background: var(--amber); }
+    .timeline-dot.now { background: var(--gold); box-shadow: 0 0 0 4px rgba(240,180,41,0.18); }
+    .timeline-dot.future { background: var(--sage); }
+    .timeline-era { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+    .timeline-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .timeline-desc { font-size: 0.92rem; color: rgba(245,240,232,0.38); line-height: 1.6; max-width: 200px; margin: 0 auto; }
+    .motto-wrap { text-align: center; padding: 4rem 2rem; border-top: 1px solid rgba(212,130,10,0.1); border-bottom: 1px solid rgba(212,130,10,0.1); margin: 2rem 0; }
+    .motto-wrap::before { content: '\201C'; font-family: 'DM Serif Display', serif; font-size: 8rem; line-height: 0.6; color: var(--amber); opacity: 0.12; display: block; margin-bottom: 1rem; }
+    .motto-wrap blockquote { border-left: none; padding-left: 0; max-width: 700px; margin: 0 auto; font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
+    .motto-attr { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-top: 1.5rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+    .two-col-item h3 { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .two-col-item ul { list-style: none; }
+    .two-col-item ul li { font-size: 1rem; color: rgba(245,240,232,0.52); padding: 0.45rem 0; border-bottom: 1px solid rgba(212,130,10,0.08); }
+    .two-col-item ul li:last-child { border-bottom: none; }
+    .two-col-item ul li::before { content: '-> '; color: var(--amber); font-weight: 600; }
+    .watermark { position: absolute; font-family: 'DM Serif Display', serif; font-size: 9rem; color: rgba(212,130,10,0.03); letter-spacing: -0.04em; line-height: 1; pointer-events: none; user-select: none; right: 4rem; top: 3rem; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(212,130,10,0.12); border: 1px solid rgba(212,130,10,0.35); color: var(--amber); padding: 0.45rem 1.1rem; border-radius: 100px; margin-bottom: 1.4rem; }
+    .subsection-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(212,130,10,0.65); margin-top: 2.8rem; margin-bottom: 0.6rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(212,130,10,0.12); }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .cta-btn.primary { background: var(--amber); color: var(--ink); }
+    .cta-btn.primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .cta-btn.ghost { border: 1px solid rgba(212,130,10,0.35); color: var(--amber); background: transparent; }
+    .cta-btn.ghost:hover { border-color: var(--amber); background: rgba(212,130,10,0.08); transform: translateY(-2px); }
+    .stats-strip { display: flex; gap: 0; max-width: 1300px; margin: 0 auto; border-top: 1px solid rgba(212,130,10,0.1); border-bottom: 1px solid rgba(212,130,10,0.1); }
+    .stat-block { flex: 1; text-align: center; padding: 2rem 1rem; border-right: 1px solid rgba(212,130,10,0.1); }
+    .stat-block:last-child { border-right: none; }
+    .stat-block-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-block-label { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.35); }
+    .tools-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; padding: 1.5rem 2rem; background: rgba(212,130,10,0.04); border: 1px solid rgba(212,130,10,0.12); border-radius: 10px; }
+    .tool-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.25); color: rgba(245,240,232,0.55); background: rgba(255,255,255,0.03); }
+    .tool-pill i { color: var(--amber); font-size: 0.75rem; }
+    .contact-section { max-width: 1300px; margin: 0 auto; padding: 5rem 6rem; border-top: 1px solid rgba(212,130,10,0.08); text-align: center; }
+    .contact-section h2 { margin-bottom: 1rem; }
+    .contact-section p { font-size: 1.1rem; color: rgba(245,240,232,0.55); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.85; }
+    .reading-card { background: rgba(212,130,10,0.05); border: 1px solid rgba(212,130,10,0.18); border-radius: 10px; padding: 1.8rem 2rem; display: flex; align-items: flex-start; gap: 1.4rem; margin-top: 1.8rem; }
+    .reading-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .reading-label { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+    .reading-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.3rem; }
+    .reading-desc { font-size: 0.95rem; color: rgba(245,240,232,0.45); line-height: 1.65; }
+    footer { border-top: 1px solid rgba(212,130,10,0.12); padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--cream); text-decoration: none; }
+    .footer-logo span { color: var(--amber); }
+    .footer-tagline { font-size: 0.92rem; color: rgba(245,240,232,0.3); margin-top: 0.2rem; }
+    .footer-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); text-decoration: none; transition: gap 0.2s, color 0.2s; }
+    .footer-link:hover { gap: 0.9rem; color: var(--gold); }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,180,41,0); }
+      50%       { box-shadow: 0 0 0 6px rgba(240,180,41,0.12); }
+    }
+    .badge-pulse { animation: pulse 2.4s ease-in-out infinite; }
+    .nav-social { display: flex; align-items: center; gap: 1.2rem; margin-left: 1rem; padding-left: 1.5rem; border-left: 1px solid rgba(212,130,10,0.2); }
+    .nav-social a { color: rgba(245,240,232,0.4); font-size: 1rem; text-decoration: none; transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
+    .nav-social a:hover { color: var(--amber); transform: translateY(-2px); }
+    .footer-social { display: flex; align-items: center; gap: 1.2rem; margin-top: 0.9rem; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--amber); }
+    .footer-social a i { font-size: 0.95rem; }
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2.5rem; }
+      .page-hero, .section-wrap { padding-left: 3rem; padding-right: 3rem; }
+      footer { padding: 3rem; }
+      .page-hero::after, .watermark { display: none; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .page-hero, .section-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+      .timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+      .timeline::before { display: none; }
+      .timeline-item { text-align: left; display: flex; gap: 1.2rem; align-items: flex-start; }
+      .timeline-dot { margin: 5px 0 0; flex-shrink: 0; }
+      .timeline-desc { margin: 0; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#" class="nav-logo">Minga <span>Ngolo</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" class="active">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="project.html">Projects</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero" id="about">
+    <span class="badge badge-pulse fade-in">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;"></span>
+      Currently Learning · Python &nbsp;·&nbsp;SQL Queries &amp; Joins
+    </span>
+    <div class="hero-eyebrow fade-in">Aspiring Data Analyst &nbsp;·&nbsp; Portfolio &nbsp;·&nbsp; Student at Metropolitan Community College</div>
+    <h1 class="fade-in">Minga<br><em>Ngolo.</em></h1>
+    <p class="hero-tagline fade-in">Turning raw data into clear answers <br>one project at a time.</p>
+    <div class="hero-three-words fade-in">
+      <span class="word-pill">Data Analyst</span>
+      <span class="word-pill">Problem Solver</span>
+      <span class="word-pill">Always Building</span>
+    </div>
+    <div class="cta-group fade-in">
+      <a href="project.html" class="cta-btn primary">View My Projects <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> Connect on LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- ── BY THE NUMBERS ── -->
+  <div class="stats-strip fade-in">
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-rows">21,107</div>
+      <div class="stat-block-label">Rows Analysed</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-done">5</div>
+      <div class="stat-block-label">Data Projects Done</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-repos">2</div>
+      <div class="stat-block-label">Public GitHub Repos</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-kaggle">9</div>
+      <div class="stat-block-label">Kaggle Notebooks</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-total">11</div>
+      <div class="stat-block-label">Projects in Build Log</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-visitors">—</div>
+      <div class="stat-block-label">Unique Visitors</div>
+    </div>
+  </div>
+
+  <!-- ── 01 WHO I AM ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">WHO</div>
+    <div class="section-eyebrow">01 Introduction</div>
+    <h2>Who I <em>Am</em></h2>
+    <p class="large-text">Some people find their path early. I found mine by moving across continents and learning to adapt along the way. Born in the DRC, raised in Zimbabwe, now building toward something bigger in the USA, my story isn't just about geography. It's about becoming.</p>
+    <p class="body-text">I'm a student with a quiet kind of drive. Not the loudest person in the room, but consistently the most focused. I move through life blending two worlds that most people think don't go together: the creative energy of music and soccer, and the logical precision of technology. That tension? It's actually my biggest strength.</p>
+    <p class="body-text">Right now, I'm focused on data analysis, finding patterns in messy datasets, understanding what the numbers are actually saying, and turning raw information into something that makes decisions easier. So far I've analysed over 21,000 rows of real-world data across two completed projects, with more in progress.</p>
+    <p class="body-text">I'm here to build skills, build a career in data, and build something worth being proud of.</p>
+  </div>
+
+  <!-- ── 02 WHERE I'M FROM ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">ROOTS</div>
+    <div class="section-eyebrow">02 Personal Background</div>
+    <h2>Where I'm <em>From</em></h2>
+    <p class="large-text">Born in the Democratic Republic of Congo. Raised in Zimbabwe. Currently writing the next chapter in the United States.</p>
+    <p class="body-text">That's not just a travel itinerary, that's a curriculum. Growing up in Zimbabwe shaped something in me that no classroom could: the ability to stay grounded when things get uncertain, to find focus when resources are limited, and to keep moving forward even when the path isn't clear. It also taught me to look at what the numbers actually say, not what I wish they said. That instinct is what makes a good analyst.</p>
+    <p class="body-text">Every environment I've lived in has left a mark. The DRC gave me origin. Zimbabwe gave me roots and resilience. America is giving me a canvas. I carry all three wherever I go.</p>
+    <blockquote>"You don't need a perfect start to build something meaningful. You just need a reason to keep going."</blockquote>
+  </div>
+
+  <!-- ── 03 WHAT DRIVES ME ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">03 Interests and Passions</div>
+    <h2>What <em>Drives</em> Me</h2>
+    <p class="body-text">I live at the intersection of movement and stillness. On the field, I'm competitive soccer teaches you things no lecture ever can: reading the situation in real time, communicating without words, pushing through when your legs don't cooperate. That discipline bleeds into everything else I do.</p>
+    <p class="body-text">Off the field, I pick up my guitar. Music is where I process the world, where logic meets emotion, where I let myself be unstructured. There's something powerful about creating something out of nothing, and that same instinct pulls me toward data and problem-solving.</p>
+    <p class="body-text">Data is where those two instincts converge. Every dataset has a pattern waiting to be found, and finding it feels like both a logical puzzle and a creative act.</p>
+    <div class="tag-group">
+      <span class="tag">Soccer</span>
+      <span class="tag">Guitar and Music</span>
+      <span class="tag">Data Analysis</span>
+      <span class="tag">Python</span>
+      <span class="tag">Problem-Solving</span>
+      <span class="tag">Networking and Community</span>
+    </div>
+  </div>
+
+  <!-- ── 04 GOALS ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">GOALS</div>
+    <div class="section-eyebrow">04 Goals and Ambitions</div>
+    <h2>What I'm <em>Chasing</em></h2>
+    <p class="body-text">I think about goals the way I think about playing soccer, keep your eyes on the long game while staying sharp in the moment.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Right Now (2026)</h3>
+        <p>Complete Projects 07–10, sharpen SQL skills, and submit my first internship applications for junior data analyst roles. The foundation is built, now it's about converting it into opportunity.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>On the Horizon</h3>
+        <p>Move from student projects to real-world impact. Contribute to a team that uses data to make actual decisions. Land a full-time role where I can grow from analyst to senior analyst.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>The Big Picture (5–10 Years)</h3>
+        <p>Become a data professional who bridges technical work and clear communication. Build a career that opens doors and eventually, make that path easier for the next person who came from where I came from.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 05 SKILLS ── -->
+  <div class="section-wrap fade-in" id="skills">
+    <div class="section-eyebrow">05 Skills and Strengths</div>
+    <h2>What I <em>Bring</em></h2>
+    <p class="body-text">Some skills come from classrooms. Mine come from data, discipline, and three different countries.</p>
+
+    <p class="subsection-eyebrow">Technical · Data Tools</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🐍</div>
+        <h3>Python</h3>
+        <p>Pandas, NumPy, Matplotlib. I use Python to load messy data, clean it, explore it, and build visualizations that actually communicate something real.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🗄️</div>
+        <h3>SQL</h3>
+        <p>Writing queries to pull, filter, and join data across tables. If the answer lives in a database, SQL is how I find it.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Data Visualization</h3>
+        <p>Matplotlib, Seaborn, and learning Tableau. A good chart is the difference between data that's seen and data that gets ignored.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧹</div>
+        <h3>Data Cleaning</h3>
+        <p>Real data is never clean. Nulls, duplicates, wrong formats, mislabeled columns, this is where most of the actual work lives, and I'm not afraid of it.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📁</div>
+        <h3>Excel / Spreadsheets</h3>
+        <p>PivotTables, VLOOKUP, conditional logic. Still one of the most-used data tools in any workplace and I know my way around it.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔢</div>
+        <h3>Statistics Fundamentals</h3>
+        <p>Mean, median, distributions, correlation. Knowing what a number actually means before drawing any conclusions from it.</p>
+      </div>
+    </div>
+
+    <p class="subsection-eyebrow">Foundation · Transferable</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🧠</div>
+        <h3>Analytical Thinking</h3>
+        <p>I break problems down before jumping to answers. From reading a soccer match in real time to debugging a dataset, pattern recognition is how I naturally operate.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Communication</h3>
+        <p>Data only matters if you can explain it. I've learned to translate complex ideas into clear language, from three languages, three countries, and a lot of practice.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Consistency</h3>
+        <p>I show up. Not because I always feel like it because discipline builds what motivation alone never could. Every day is a data point in a longer trend.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Adaptability</h3>
+        <p>Three countries. Multiple environments. Different challenges. I've learned to figure it out, wherever "it" is. New tools, new datasets, new problems included.</p>
+      </div>
+    </div>
+
+    <p class="subsection-eyebrow">At a Glance · Tools I've Actually Used</p>
+    <div class="tools-strip">
+      <span class="tool-pill"><i class="fa-brands fa-python"></i> Python</span>
+      <span class="tool-pill"><i class="fa-solid fa-database"></i> SQL</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-line"></i> Pandas</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-bar"></i> Matplotlib</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-area"></i> Seaborn</span>
+      <span class="tool-pill"><i class="fa-solid fa-file-excel"></i> Excel</span>
+      <span class="tool-pill"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+      <span class="tool-pill"><i class="fa-brands fa-react"></i> React</span>
+      <span class="tool-pill"><i class="fa-brands fa-html5"></i> HTML / CSS</span>
+      <span class="tool-pill"><i class="fa-solid fa-globe"></i> Netlify</span>
+    </div>
+  </div>
+
+  <!-- ── 06 VALUES ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">VALUES</div>
+    <div class="section-eyebrow">06 Values and Mindset</div>
+    <h2>What I <em>Stand On</em></h2>
+    <p class="large-text">Values aren't what you say they're what you do when no one's watching, when you're tired, when it would be easier to stop.</p>
+    <p class="body-text">My core value is simple but hard: <strong>discipline over motivation.</strong> Motivation comes and goes. Discipline is a choice you make every morning. I've learned to trust the process, not the feeling.</p>
+    <p class="body-text">Alongside that, I believe deeply in honesty, with myself and others. I don't pretend to have it all figured out, but I'm always genuinely trying to grow. Loyalty matters to me. And choosing the right people around you is itself a form of discipline.</p>
+    <div class="tag-group">
+      <span class="tag">Discipline over motivation</span>
+      <span class="tag">Growth mindset</span>
+      <span class="tag">Radical honesty</span>
+      <span class="tag">Loyalty</span>
+      <span class="tag">Lead by example</span>
+    </div>
+  </div>
+
+  <!-- ── 07 ACHIEVEMENTS ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">07 Achievements and Milestones</div>
+    <h2>What I've <em>Built</em> So Far</h2>
+    <p class="body-text">Not trophies. Real work. Real numbers. Real proof.</p>
+    <ul class="row-list">
+      <li><span class="row-num">01</span>Maintained academic commitment through transitions across three countries and school systems, that's not nothing, and most people who've done it know exactly why.</li>
+      <li><span class="row-num">02</span>Analysed over 21,107 rows of real-world data across two completed projects, a retail sales dataset ($2.3M revenue, 9,994 rows) and 11,113 Premier League matches. Real datasets, real findings, publicly available on GitHub and Kaggle.</li>
+      <li><span class="row-num">03</span>Published 2 public GitHub repos and 2 Kaggle notebooks all open, all real, all built from scratch with no copied code.</li>
+      <li><span class="row-num">04</span>Built and deployed 3 web projects from scratch a soccer education site, this portfolio, and a React productivity app all live on the internet.</li>
+      <li><span class="row-num">05</span>Showed up consistently to training, to class, to growth even on the days it didn't feel worth it. That's the one that compounds the slowest and matters the most.</li>
+    </ul>
+  </div>
+
+  <!-- ── 08 CURRENTLY BUILDING ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">NOW</div>
+    <div class="section-eyebrow">08 Learning and Growth</div>
+    <h2>What I'm <em>Working On</em></h2>
+    <p class="body-text">Growth is never done. I'm always somewhere in the middle of becoming.</p>
+    <div class="two-col">
+      <div class="two-col-item">
+        <h3>Currently Building</h3>
+        <ul>
+          <li>Completing Projects 07–10 (COVID, Netflix, Job Market, Happiness)</li>
+          <li>SQL — joins, aggregations, subqueries, window functions</li>
+          <li>Building the SQL + Python pipeline project end to end</li>
+          <li>Submitting first internship applications for analyst roles</li>
+          <li>Growing my Kaggle notebook library with each project</li>
+        </ul>
+      </div>
+      <div class="two-col-item">
+        <h3>Things That Inspire Me</h3>
+        <ul>
+          <li>People who built something from very little</li>
+          <li>A dataset that tells a story nobody expected</li>
+          <li>The sound of a chord that finally clicks right</li>
+          <li>Anyone who chose consistency over shortcuts</li>
+          <li>Stories of people who crossed borders and made it</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="subsection-eyebrow">Currently Reading / Learning</p>
+    <div class="reading-card">
+      <div class="reading-icon">📖</div>
+      <div>
+        <div class="reading-label">Active Resource</div>
+        <div class="reading-title">Python for Data Analysis, Wes McKinney</div>
+        <div class="reading-desc">The book written by the creator of Pandas. Working through it alongside my projects, applying each concept directly to real datasets rather than just reading about it.</div>
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-icon">💻</div>
+      <div>
+        <div class="reading-label">Online Practice</div>
+        <div class="reading-title">SQL on Mode Analytics &amp; LeetCode</div>
+        <div class="reading-desc">Practising SQL queries daily SELECT, WHERE, GROUP BY, JOIN, subqueries. Building the muscle memory that makes database work feel natural.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 09 CREATIVE SIDE ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">09 Creative Side</div>
+    <h2>The Other <em>Side</em> of Me</h2>
+    <p class="body-text">Music and soccer aren't separate from my data work they're where my analytical instincts were trained. Soccer taught me to read a situation in real time and act on incomplete information. Music taught me to find structure in something that feels like noise. Both of those skills show up every time I open a dataset.</p>
+  </div>
+
+  <!-- ── 10 WHEN IT GOT HARD ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">GRIT</div>
+    <div class="section-eyebrow">10 Challenges and Determination</div>
+    <h2>When It Got <em>Hard</em></h2>
+    <p class="body-text">Three countries, three school systems, multiple low-motivation seasons where the goal felt too far away to matter. What I learned from all of it, not from a book but from living it is that motivation is a liar. Discipline is the only thing that shows up when motivation doesn't. Every transition I've been through has had one answer: adapt, focus on what you can control, and keep going.</p>
+    <div class="highlight-box">
+      <p>🔑 <strong>The lesson I keep coming back to:</strong> You don't have to feel ready. You just have to show up anyway.</p>
+    </div>
+  </div>
+
+  <!-- ── 11 VISION ── -->
+  <div class="section-wrap fade-in" id="vision">
+    <div class="watermark">FUTURE</div>
+    <div class="section-eyebrow">11 Future Vision</div>
+    <h2>Where I'm <em>Headed</em></h2>
+    <p class="body-text">I'm targeting junior data analyst roles at tech companies, startups, or organisations working on social impact places where data actually drives decisions and clear communication matters as much as technical skill. That's the kind of environment where what I bring is most valuable.</p>
+    <p class="body-text">Every project I build right now is a step toward that. Every dataset I explore, every query I write, every chart I make it's all going somewhere. The work is quiet and consistent, and the results compound.</p>
+    <p class="body-text">But beyond the career, I see someone who's given back. Someone who made it easier for the next person coming from where I came from. I want to be proof that crossing borders and staying disciplined can take you somewhere worth going.</p>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">My Growth Timeline</div>
+    <h2>Past to Present to <em>Future</em></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot past"></div>
+        <p class="timeline-era">Past</p>
+        <p class="timeline-title">Roots and Resilience</p>
+        <p class="timeline-desc">DRC to Zimbabwe, building a foundation of adaptability, discipline, and identity across cultures.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot now"></div>
+        <p class="timeline-era">Now</p>
+        <p class="timeline-title">Data and Code</p>
+        <p class="timeline-desc">Student in the USA learning Python, SQL, and data analysis. Building real projects. Turning skill into proof.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot future"></div>
+        <p class="timeline-era">Future</p>
+        <p class="timeline-title">Analyst and Impact</p>
+        <p class="timeline-desc">Data analyst, data scientist, community figure turning the journey into a story that opens doors for others.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FUN FACTS ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">12 Fun Facts</div>
+    <h2>A Few Things You <em>Should Know</em></h2>
+    <ul class="row-list">
+      <li><span class="row-num">✦</span>I've lived in three countries on two continents which means I hold a set of perspectives most people only get from a documentary.</li>
+      <li><span class="row-num">✦</span>I can switch from debugging a Python script to picking up a guitar, and those two activities actually make each other better.</li>
+      <li><span class="row-num">✦</span>I'm the person who will still be working toward a goal when everyone else has moved on quietly, without announcement.</li>
+      <li><span class="row-num">✦</span>Soccer taught me that momentum is real once you start moving forward, stopping feels unnatural. Same goes for learning data.</li>
+      <li><span class="row-num">✦</span>I believe the most underrated skill in the world is just showing up. Consistently. Regardless of how you feel that day.</li>
+    </ul>
+  </div>
+
+  <!-- ── STANDOUT ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">UNIQUE</div>
+    <div class="section-eyebrow">14 What Makes Me Unique</div>
+    <h2>The <em>Standout</em> Factor</h2>
+    <span class="badge">⚡ Dual-mode thinker</span>
+    <p class="body-text">Most people are either creative or analytical. I've built myself at both ends of that spectrum, and I genuinely believe that's where the most interesting data work happens.</p>
+    <p class="body-text">I can go from exploring a dataset to composing music in the same afternoon. I can read a soccer match and a bar chart with the same instinct. I can communicate findings to someone who doesn't know what a DataFrame is without losing the precision of what the data actually says.</p>
+    <p class="body-text">That's the combination. That's what I bring.</p>
+    <div class="highlight-box">
+      <p>🎯 <strong>My Energy / Vibe:</strong> Think of that one teammate who never panics in a tough match, always finds the right pass, and still smiles at the end. Calm, capable, and quietly competitive. That's me with a dataset too.</p>
+      <p>📊 <strong>If You Know Me, You Know...</strong> I'll take the longer path if it's the right one. I don't cut corners not because I can't, but because I actually care about the result. And the result, in data, is always a story worth telling correctly.</p>
+    </div>
+  </div>
+
+  <!-- ── COMMUNITY ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">15 Community and Impact</div>
+    <h2>How I Want to <em>Give Back</em></h2>
+    <p class="large-text">Representation matters. When I was growing up, I didn't always see people who looked like me in the tech and data spaces I wanted to enter.</p>
+    <p class="body-text">That's not something I can change overnight. But I can be one more person who made it through, who stayed consistent, and who shows the next person that it's possible. Impact doesn't always look like a speech or a foundation, sometimes it looks like just being visible. Just succeeding.</p>
+    <p class="body-text">I want to inspire through example. Through showing up, building something real, and making it easier for the people coming after me. That's the kind of impact that compounds quietly, and eventually becomes impossible to ignore.</p>
+    <blockquote>"Progress is personal, but its ripple effects are never just for one person."</blockquote>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <div class="contact-section fade-in">
+    <div class="section-eyebrow" style="justify-content:center;">Open to Opportunities</div>
+    <h2>Let's <em>Connect</em></h2>
+    <p>I'm actively looking for internships and junior data analyst roles. If you're working on something interesting with data or know someone who is, I'd love to hear about it.</p>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/Minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="project.html" class="cta-btn ghost"><i class="fa-solid fa-chart-bar"></i> View Projects</a>
+    </div>
+    <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(212,130,10,0.1);">
+      <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);color:rgba(245,240,232,0.5);max-width:600px;margin:0 auto;line-height:1.6;">
+        "Stay consistent, even when you don't feel like it. Envision a future where growth and life thrive beyond today."
+      </p>
+      <p style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-top:1rem;">— Minga Ngolo</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="#" class="footer-logo">Minga <span>Ngolo</span></a>
+      <div class="footer-tagline">Aspiring Data Analyst</div>
+      <div class="footer-social">
+        <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+        <a href="https://github.com/Minga17" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.kaggle.com/mingangolo" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a>
+      </div>
+    </div>
+    <a href="project.html" class="footer-link">
+      View Projects <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </footer>
+
+  <script>
+    // ── Fade-in observer ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.transitionDelay = i * 0.04 + 's';
+      observer.observe(el);
+    });
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }, 300);
+
+    // ── Scroll spy ──
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+
+    // ── Log this page view ──
+    API.logPageView('index');
+
+    // ── Load live stats from backend ──
+    API.getStats().then(data => {
+      if (!data) return;
+      const fmt = n => n >= 1000 ? n.toLocaleString() : n;
+      if (data.rows_analysed)    document.getElementById('stat-rows').textContent     = fmt(data.rows_analysed);
+      if (data.done_count)       document.getElementById('stat-done').textContent     = data.done_count;
+      if (data.github_repos)     document.getElementById('stat-repos').textContent    = data.github_repos;
+      if (data.kaggle_notebooks) document.getElementById('stat-kaggle').textContent   = data.kaggle_notebooks;
+      if (data.project_count)    document.getElementById('stat-total').textContent    = data.project_count;
+      if (data.unique_visitors)  document.getElementById('stat-visitors').textContent = fmt(data.unique_visitors);
+    });
+  </script>
+</body>
+</html>
+
+
+
+# html part 2 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minga Ngolo — Data Analyst Portfolio</title>
+
+  <!-- ── SEO + Open Graph ── -->
+  <meta name="description" content="Minga Ngolo — Aspiring Data Analyst. 361,302 rows analysed across 5 projects. Python, SQL, Power BI. Open to internships and junior analyst roles." />
+  <meta name="keywords" content="data analyst, Python, SQL, Pandas, Matplotlib, Power BI, portfolio, Minga Ngolo" />
+  <meta name="author" content="Minga Ngolo" />
+  <meta property="og:title" content="Minga Ngolo — Data Analyst Portfolio" />
+  <meta property="og:description" content="Aspiring Data Analyst — 361,302 rows analysed across 5 projects. Python · SQL · Power BI. Open to opportunities." />
+  <meta property="og:url" content="https://portfolio.mingangolo.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://portfolio.mingangolo.com/images/dashboard.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Minga Ngolo — Data Analyst Portfolio" />
+  <meta name="twitter:description" content="Aspiring Data Analyst — Python · SQL · Power BI. Open to opportunities." />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="/static/js/api.js"></script>
+  <style>
+    :root {
+      --ink:    #0f0e0d;
+      --cream:  #f5f0e8;
+      --amber:  #d4820a;
+      --gold:   #f0b429;
+      --rust:   #c04e2a;
+      --sage:   #4a6c5e;
+      --paper:  #faf7f2;
+      --muted:  #7a7265;
+      --border: rgba(212,130,10,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 1.125rem;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a1814; }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 9px; }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(15,14,13,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+    .page-hero { padding: 13rem 6rem 6rem; max-width: 1300px; margin: 0 auto; position: relative; }
+    .page-hero::after { content: 'DATA'; position: absolute; right: 4rem; top: 8rem; font-family: 'DM Serif Display', serif; font-size: 10rem; color: rgba(212,130,10,0.04); letter-spacing: -0.04em; line-height: 1; pointer-events: none; user-select: none; }
+    .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--amber); }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1.0; color: var(--cream); letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+    .page-hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-tagline { font-size: 1.2rem; color: rgba(245,240,232,0.55); max-width: 540px; line-height: 1.85; margin-bottom: 2.5rem; font-style: italic; }
+    .hero-three-words { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .word-pill { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.35); color: var(--amber); background: rgba(212,130,10,0.08); }
+    .section-wrap { max-width: 1300px; margin: 0 auto; padding: 5rem 6rem; position: relative; border-top: 1px solid rgba(212,130,10,0.08); }
+    .section-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .section-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--amber); }
+    h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; color: var(--cream); letter-spacing: -0.02em; margin-bottom: 1.8rem; }
+    h2 em { color: var(--gold); font-style: italic; }
+    .body-text { font-size: 1.1rem; color: rgba(245,240,232,0.6); max-width: 700px; line-height: 1.85; margin-bottom: 1.1rem; }
+    .body-text strong { color: var(--cream); font-weight: 400; }
+    .large-text { font-size: 1.3rem; color: rgba(245,240,232,0.7); max-width: 700px; line-height: 1.8; margin-bottom: 1.4rem; }
+    blockquote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.65rem); line-height: 1.55; color: var(--cream); border-left: 3px solid var(--amber); padding-left: 1.6rem; margin: 2.5rem 0; max-width: 640px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 1.2rem; margin-top: 2rem; }
+    .card { padding: 2rem; border: 1px solid rgba(212,130,10,0.14); border-radius: 10px; background: rgba(255,255,255,0.025); position: relative; overflow: hidden; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
+    .card:hover { border-color: rgba(212,130,10,0.4); background: rgba(255,255,255,0.045); transform: translateY(-3px); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--amber); }
+    .card::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle, rgba(212,130,10,0.07) 0%, transparent 70%); pointer-events: none; }
+    .card-icon { font-size: 1.4rem; margin-bottom: 0.9rem; }
+    .card h3 { font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cream); margin-bottom: 0.6rem; }
+    .card p { font-size: 0.98rem; color: rgba(245,240,232,0.5); line-height: 1.7; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+    .tag { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.8rem; border: 1px solid rgba(212,130,10,0.2); border-radius: 4px; color: rgba(245,240,232,0.42); }
+    .row-list { list-style: none; margin-top: 1.8rem; }
+    .row-list li { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(212,130,10,0.1); font-size: 1.05rem; color: rgba(245,240,232,0.58); line-height: 1.7; }
+    .row-list li:last-child { border-bottom: none; }
+    .row-num { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; color: var(--amber); letter-spacing: 0.1em; min-width: 22px; padding-top: 4px; flex-shrink: 0; }
+    .highlight-box { background: rgba(212,130,10,0.06); border: 1px solid rgba(212,130,10,0.2); border-radius: 10px; padding: 2rem 2.5rem; margin-top: 2rem; }
+    .highlight-box p { font-size: 1.05rem; color: rgba(245,240,232,0.6); line-height: 1.75; margin-bottom: 0.8rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    .highlight-box strong { color: var(--cream); }
+    .timeline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: 3rem; position: relative; }
+    .timeline::before { content: ''; position: absolute; top: 27px; left: 16.6%; right: 16.6%; height: 1px; background: linear-gradient(to right, var(--amber), var(--gold), var(--sage)); opacity: 0.35; }
+    .timeline-item { text-align: center; padding: 0 1rem; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; margin: 20px auto 20px; position: relative; z-index: 1; }
+    .timeline-dot.past { background: var(--amber); }
+    .timeline-dot.now { background: var(--gold); box-shadow: 0 0 0 4px rgba(240,180,41,0.18); }
+    .timeline-dot.future { background: var(--sage); }
+    .timeline-era { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+    .timeline-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.6rem; }
+    .timeline-desc { font-size: 0.92rem; color: rgba(245,240,232,0.38); line-height: 1.6; max-width: 200px; margin: 0 auto; }
+    .motto-wrap { text-align: center; padding: 4rem 2rem; border-top: 1px solid rgba(212,130,10,0.1); border-bottom: 1px solid rgba(212,130,10,0.1); margin: 2rem 0; }
+    .motto-wrap::before { content: '\201C'; font-family: 'DM Serif Display', serif; font-size: 8rem; line-height: 0.6; color: var(--amber); opacity: 0.12; display: block; margin-bottom: 1rem; }
+    .motto-wrap blockquote { border-left: none; padding-left: 0; max-width: 700px; margin: 0 auto; font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
+    .motto-attr { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-top: 1.5rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+    .two-col-item h3 { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .two-col-item ul { list-style: none; }
+    .two-col-item ul li { font-size: 1rem; color: rgba(245,240,232,0.52); padding: 0.45rem 0; border-bottom: 1px solid rgba(212,130,10,0.08); }
+    .two-col-item ul li:last-child { border-bottom: none; }
+    .two-col-item ul li::before { content: '-> '; color: var(--amber); font-weight: 600; }
+    .watermark { position: absolute; font-family: 'DM Serif Display', serif; font-size: 9rem; color: rgba(212,130,10,0.03); letter-spacing: -0.04em; line-height: 1; pointer-events: none; user-select: none; right: 4rem; top: 3rem; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(212,130,10,0.12); border: 1px solid rgba(212,130,10,0.35); color: var(--amber); padding: 0.45rem 1.1rem; border-radius: 100px; margin-bottom: 1.4rem; }
+    .subsection-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(212,130,10,0.65); margin-top: 2.8rem; margin-bottom: 0.6rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(212,130,10,0.12); }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+    .cta-btn.primary { background: var(--amber); color: var(--ink); }
+    .cta-btn.primary:hover { background: var(--gold); transform: translateY(-2px); }
+    .cta-btn.ghost { border: 1px solid rgba(212,130,10,0.35); color: var(--amber); background: transparent; }
+    .cta-btn.ghost:hover { border-color: var(--amber); background: rgba(212,130,10,0.08); transform: translateY(-2px); }
+    .stats-strip { display: flex; gap: 0; max-width: 1300px; margin: 0 auto; border-top: 1px solid rgba(212,130,10,0.1); border-bottom: 1px solid rgba(212,130,10,0.1); }
+    .stat-block { flex: 1; text-align: center; padding: 2rem 1rem; border-right: 1px solid rgba(212,130,10,0.1); }
+    .stat-block:last-child { border-right: none; }
+    .stat-block-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+    .stat-block-label { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(245,240,232,0.35); }
+    .tools-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; padding: 1.5rem 2rem; background: rgba(212,130,10,0.04); border: 1px solid rgba(212,130,10,0.12); border-radius: 10px; }
+    .tool-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.25); color: rgba(245,240,232,0.55); background: rgba(255,255,255,0.03); }
+    .tool-pill i { color: var(--amber); font-size: 0.75rem; }
+    .contact-section { max-width: 1300px; margin: 0 auto; padding: 5rem 6rem; border-top: 1px solid rgba(212,130,10,0.08); text-align: center; }
+    .contact-section h2 { margin-bottom: 1rem; }
+    .contact-section p { font-size: 1.1rem; color: rgba(245,240,232,0.55); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.85; }
+    .reading-card { background: rgba(212,130,10,0.05); border: 1px solid rgba(212,130,10,0.18); border-radius: 10px; padding: 1.8rem 2rem; display: flex; align-items: flex-start; gap: 1.4rem; margin-top: 1.8rem; }
+    .reading-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .reading-label { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.4rem; }
+    .reading-title { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--cream); margin-bottom: 0.3rem; }
+    .reading-desc { font-size: 0.95rem; color: rgba(245,240,232,0.45); line-height: 1.65; }
+    footer { border-top: 1px solid rgba(212,130,10,0.12); padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--cream); text-decoration: none; }
+    .footer-logo span { color: var(--amber); }
+    .footer-tagline { font-size: 0.92rem; color: rgba(245,240,232,0.3); margin-top: 0.2rem; }
+    .footer-link { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); text-decoration: none; transition: gap 0.2s, color 0.2s; }
+    .footer-link:hover { gap: 0.9rem; color: var(--gold); }
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(240,180,41,0); }
+      50%       { box-shadow: 0 0 0 6px rgba(240,180,41,0.12); }
+    }
+    .badge-pulse { animation: pulse 2.4s ease-in-out infinite; }
+    /* ── Scroll progress bar ── */
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--amber), var(--gold)); width: 0%; z-index: 9999; transition: width 0.1s linear; }
+    /* ── Back to top ── */
+    #back-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 50%; background: var(--amber); color: var(--ink); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 200; box-shadow: 0 4px 20px rgba(212,130,10,0.35); }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-3px); background: var(--gold); }
+    /* ── Open to work banner ── */
+    .otw-banner { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,108,94,0.15); border: 1px solid rgba(74,108,94,0.4); color: #6bbf9e; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
+    .otw-dot { width: 7px; height: 7px; border-radius: 50%; background: #6bbf9e; animation: pulse 1.8s ease-in-out infinite; flex-shrink: 0; }
+    /* ── Typewriter ── */
+    .typewriter-cursor { display: inline-block; width: 2px; height: 1em; background: var(--amber); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.9s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    /* ── Radar chart ── */
+    .radar-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2rem; }
+    .radar-canvas-wrap { max-width: 380px; margin: 0 auto; width: 100%; }
+    .radar-legend { display: flex; flex-direction: column; gap: 1rem; }
+    .radar-item { display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.8rem; border-bottom: 1px solid rgba(212,130,10,0.08); }
+    .radar-item:last-child { border-bottom: none; }
+    .radar-label { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; color: rgba(245,240,232,0.65); }
+    .radar-bar-wrap { flex: 1; margin: 0 1rem; height: 3px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; }
+    .radar-bar { height: 100%; background: linear-gradient(90deg, var(--amber), var(--gold)); border-radius: 10px; }
+    .radar-pct { font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; color: var(--amber); min-width: 32px; text-align: right; }
+    /* ── Visitor counter ── */
+    .visitor-line { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(245,240,232,0.2); margin-top: 0.6rem; }
+    .visitor-line span { color: rgba(212,130,10,0.5); }
+    @media (max-width: 640px) {
+      #back-top { bottom: 1.2rem; right: 1.2rem; width: 38px; height: 38px; font-size: 0.85rem; }
+      .radar-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .radar-canvas-wrap { max-width: 280px; }
+    }
+    .nav-social { display: flex; align-items: center; gap: 1.2rem; margin-left: 1rem; padding-left: 1.5rem; border-left: 1px solid rgba(212,130,10,0.2); }
+    .nav-social a { color: rgba(245,240,232,0.4); font-size: 1rem; text-decoration: none; transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
+    .nav-social a:hover { color: var(--amber); transform: translateY(-2px); }
+    .footer-social { display: flex; align-items: center; gap: 1.2rem; margin-top: 0.9rem; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--amber); }
+    .footer-social a i { font-size: 0.95rem; }
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2.5rem; }
+      .page-hero, .section-wrap { padding-left: 3rem; padding-right: 3rem; }
+      footer { padding: 3rem; }
+      .page-hero::after, .watermark { display: none; }
+      .stats-strip { flex-wrap: wrap; gap: 0; }
+      .stat-block { flex: 1 1 33%; border-right: none; border-bottom: 1px solid rgba(212,130,10,0.1); padding: 1.5rem 1rem; }
+      .contact-section { padding: 4rem 3rem; }
+    }
+    @media (max-width: 640px) {
+      /* ── Nav ── */
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.65rem; }
+      .nav-social { display: none; }
+
+      /* ── Hero ── */
+      .page-hero, .section-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding-top: 9rem; padding-bottom: 3rem; }
+      .hero-eyebrow { font-size: 0.6rem; flex-wrap: wrap; }
+      .hero-tagline { font-size: 1rem; }
+      .cta-group { flex-direction: column; gap: 0.8rem; }
+      .cta-btn { width: 100%; justify-content: center; }
+
+      /* ── Stats strip ── */
+      .stats-strip { flex-wrap: wrap; }
+      .stat-block { flex: 1 1 50%; padding: 1.2rem 0.8rem; border-right: none; border-bottom: 1px solid rgba(212,130,10,0.1); }
+      .stat-block-num { font-size: 1.8rem; }
+
+      /* ── Cards and layout ── */
+      .card-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* ── Tools strip ── */
+      .tools-strip { padding: 1.2rem; gap: 0.4rem; }
+      .tool-pill { font-size: 0.6rem; padding: 0.28rem 0.7rem; }
+
+      /* ── Reading cards ── */
+      .reading-card { flex-direction: column; gap: 0.8rem; padding: 1.4rem; }
+      .reading-icon { font-size: 1.4rem; }
+
+      /* ── Timeline ── */
+      .timeline { grid-template-columns: 1fr; gap: 1.5rem; }
+      .timeline::before { display: none; }
+      .timeline-item { text-align: left; display: flex; gap: 1.2rem; align-items: flex-start; }
+      .timeline-dot { margin: 5px 0 0; flex-shrink: 0; }
+      .timeline-desc { margin: 0; max-width: none; }
+
+      /* ── Contact section ── */
+      .contact-section { padding: 3rem 1.5rem; }
+      .contact-section p { font-size: 1rem; }
+
+      /* ── Footer ── */
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+      .footer-social { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Scroll progress bar ── -->
+  <div id="scroll-bar"></div>
+  <!-- ── Back to top button ── -->
+  <button id="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <nav>
+    <a href="#" class="nav-logo">Minga <span>Ngolo</span></a>
+    <ul class="nav-links">
+      <li><a href="#about" class="active">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="project.html">Projects</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="page-hero" id="about">
+    <div class="otw-banner fade-in">
+      <span class="otw-dot"></span>
+      Available · Internships &amp; Junior Analyst Roles
+    </div>
+    <span class="badge badge-pulse fade-in">
+      <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;"></span>
+      Currently Learning · SQL Queries &amp; Joins
+    </span>
+    <div class="hero-eyebrow fade-in">Aspiring Data Analyst &nbsp;·&nbsp; Portfolio &nbsp;·&nbsp; Open to Opportunities</div>
+    <h1 class="fade-in">Minga<br><em>Ngolo.</em></h1>
+    <p class="hero-tagline fade-in"><span id="typewriter"></span><span class="typewriter-cursor"></span></p>
+    <div class="hero-three-words fade-in">
+      <span class="word-pill">Data Analyst</span>
+      <span class="word-pill">Problem Solver</span>
+      <span class="word-pill">Always Building</span>
+    </div>
+    <div class="cta-group fade-in">
+      <a href="project.html" class="cta-btn primary">View My Projects <i class="fa-solid fa-arrow-right"></i></a>
+      <a href="#files" class="cta-btn ghost"><i class="fa-solid fa-download"></i> Project Files</a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- ── BY THE NUMBERS ── -->
+  <div class="stats-strip fade-in">
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-rows">361,302</div>
+      <div class="stat-block-label">Rows Analysed</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-done">5</div>
+      <div class="stat-block-label">Data Projects Done</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-repos">2</div>
+      <div class="stat-block-label">Public GitHub Repos</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-kaggle">7</div>
+      <div class="stat-block-label">Kaggle Notebooks</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-total">11</div>
+      <div class="stat-block-label">Projects in Build Log</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-num" id="stat-visitors">—</div>
+      <div class="stat-block-label">Unique Visitors</div>
+    </div>
+  </div>
+
+  <!-- ── 01 WHO I AM ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">WHO</div>
+    <div class="section-eyebrow">01 — Introduction</div>
+    <h2>Who I <em>Am</em></h2>
+    <p class="large-text">Some people find their path early. I found mine by moving across continents and learning to adapt along the way. Born in the DRC, raised in Zimbabwe, now building toward something bigger in the USA — my story isn't just about geography. It's about becoming.</p>
+    <p class="body-text">I'm someone with a quiet kind of drive. Not the loudest person in the room, but consistently the most focused. I move through life blending two worlds that most people think don't go together: the creative energy of music and soccer, and the logical precision of technology. That tension? It's actually my biggest strength.</p>
+    <p class="body-text">Right now, I'm focused on data analysis — finding patterns in messy datasets, understanding what the numbers are actually saying, and turning raw information into something that makes decisions easier. So far I've analysed over 361,302 rows of real-world data across 5 completed projects, with more in progress. I want to be proof that crossing borders and staying disciplined can take you somewhere worth going.</p>
+    <p class="body-text">I'm here to build — build skills, build a career in data, and build something worth being proud of.</p>
+  </div>
+
+  <!-- ── 02 WHERE I'M FROM ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">ROOTS</div>
+    <div class="section-eyebrow">02 — Personal Background</div>
+    <h2>Where I'm <em>From</em></h2>
+    <p class="large-text">🇨🇩 Born in the Democratic Republic of Congo. 🇿🇼 Raised in Zimbabwe. 🇺🇸 Currently writing the next chapter in the United States.</p>
+    <p class="body-text">That's not just a travel itinerary — that's a curriculum. Growing up in Zimbabwe shaped something in me that no classroom could: the ability to stay grounded when things get uncertain, to find focus when resources are limited, and to keep moving forward even when the path isn't clear. It also taught me to look at what the numbers actually say — not what I wish they said. That instinct is what makes a good analyst.</p>
+    <p class="body-text">Every environment I've lived in has left a mark. The DRC gave me origin. Zimbabwe gave me roots and resilience. America is giving me a canvas. I carry all three wherever I go.</p>
+    <blockquote>"You don't need a perfect start to build something meaningful. You just need a reason to keep going."</blockquote>
+  </div>
+
+  <!-- ── 03 WHAT DRIVES ME ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">03 — Interests and Passions</div>
+    <h2>What <em>Drives</em> Me</h2>
+    <p class="body-text">I live at the intersection of movement and stillness. On the field, I'm competitive — soccer teaches you things no lecture ever can: reading the situation in real time, communicating without words, pushing through when your legs don't cooperate. That discipline bleeds into everything else I do.</p>
+    <p class="body-text">Off the field, I pick up my guitar. Music is where I process the world — where logic meets emotion, where I let myself be unstructured. There's something powerful about creating something out of nothing, and that same instinct pulls me toward data and problem-solving.</p>
+    <p class="body-text">Data is where those two instincts converge. Every dataset has a pattern waiting to be found — and finding it feels like both a logical puzzle and a creative act.</p>
+    <div class="tag-group">
+      <span class="tag">Soccer</span>
+      <span class="tag">Guitar and Music</span>
+      <span class="tag">Data Analysis</span>
+      <span class="tag">Python</span>
+      <span class="tag">Problem-Solving</span>
+      <span class="tag">Networking and Community</span>
+    </div>
+  </div>
+
+  <!-- ── 04 GOALS ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">GOALS</div>
+    <div class="section-eyebrow">04 — Goals and Ambitions</div>
+    <h2>What I'm <em>Chasing</em></h2>
+    <p class="body-text">I think about goals the way I think about playing soccer — keep your eyes on the long game while staying sharp in the moment.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Right Now (2026)</h3>
+        <p>Complete Projects 07–10, sharpen SQL skills, and submit my first internship applications for junior data analyst roles. The foundation is built — now it's about converting it into opportunity.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>On the Horizon</h3>
+        <p>Move from personal projects to professional impact. Contribute to a team that uses data to make actual decisions. Land a full-time role where I can grow from analyst to senior analyst.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>The Big Picture (5–10 Years)</h3>
+        <p>Become a data professional who bridges technical work and clear communication. Build a career that opens doors — and eventually, make that path easier for the next person who came from where I came from.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 05 SKILLS ── -->
+  <div class="section-wrap fade-in" id="skills">
+    <div class="section-eyebrow">05 — Skills and Strengths</div>
+    <h2>What I <em>Bring</em></h2>
+    <p class="body-text">Some skills come from classrooms. Mine come from data, discipline, and three different countries.</p>
+
+    <div class="radar-wrap">
+      <div class="radar-canvas-wrap">
+        <canvas id="skillsRadar"></canvas>
+      </div>
+      <div class="radar-legend">
+        <div class="radar-item">
+          <span class="radar-label">Python</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:70%"></div></div>
+          <span class="radar-pct">70%</span>
+        </div>
+        <div class="radar-item">
+          <span class="radar-label">SQL</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:55%"></div></div>
+          <span class="radar-pct">55%</span>
+        </div>
+        <div class="radar-item">
+          <span class="radar-label">Data Visualization</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:68%"></div></div>
+          <span class="radar-pct">68%</span>
+        </div>
+        <div class="radar-item">
+          <span class="radar-label">Statistics</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:55%"></div></div>
+          <span class="radar-pct">55%</span>
+        </div>
+        <div class="radar-item">
+          <span class="radar-label">Excel</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:72%"></div></div>
+          <span class="radar-pct">72%</span>
+        </div>
+        <div class="radar-item">
+          <span class="radar-label">Communication</span>
+          <div class="radar-bar-wrap"><div class="radar-bar" style="width:85%"></div></div>
+          <span class="radar-pct">85%</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="subsection-eyebrow">At a Glance · Tools I've Actually Used</p>
+    <div class="tools-strip">
+      <span class="tool-pill"><i class="fa-brands fa-python"></i> Python</span>
+      <span class="tool-pill"><i class="fa-solid fa-database"></i> SQL</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-line"></i> Pandas</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-bar"></i> Matplotlib</span>
+      <span class="tool-pill"><i class="fa-solid fa-chart-area"></i> Seaborn</span>
+      <span class="tool-pill"><i class="fa-solid fa-file-excel"></i> Excel</span>
+      <span class="tool-pill"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+      <span class="tool-pill"><i class="fa-brands fa-react"></i> React</span>
+      <span class="tool-pill"><i class="fa-brands fa-html5"></i> HTML / CSS</span>
+      <span class="tool-pill"><i class="fa-solid fa-globe"></i> Netlify</span>
+    </div>
+  </div>
+
+  <!-- ── 06 VALUES ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">VALUES</div>
+    <div class="section-eyebrow">06 — Values and Mindset</div>
+    <h2>What I <em>Stand On</em></h2>
+    <p class="body-text">My core value is simple but hard: <strong>discipline over motivation.</strong> Motivation comes and goes. Discipline is the choice you make every morning — especially on the days nothing feels worth it. That's the one that builds everything else.</p>
+    <div class="tag-group">
+      <span class="tag">Discipline over motivation</span>
+      <span class="tag">Growth mindset</span>
+      <span class="tag">Radical honesty</span>
+      <span class="tag">Loyalty</span>
+      <span class="tag">Lead by example</span>
+    </div>
+  </div>
+
+  <!-- ── 07 ACHIEVEMENTS ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">07 — Achievements and Milestones</div>
+    <h2>What I've <em>Built</em> So Far</h2>
+    <p class="body-text">Not trophies. Real work. Real numbers. Real proof.</p>
+    <ul class="row-list">
+      <li><span class="row-num">01</span>Maintained commitment through transitions across three countries and school systems — and kept building the whole time.</li>
+      <li><span class="row-num">02</span>Analysed <strong>361,302 rows</strong> of real-world data across 5 completed projects — retail sales ($2.3M revenue), 11,113 Premier League matches, 306,429 COVID-19 records, 7,787 Netflix titles, and 25,979 European soccer matches. All findings published publicly on GitHub and Kaggle.</li>
+      <li><span class="row-num">03</span>Built a full-stack portfolio — Flask backend, SQLite database, REST API, and custom domain. Not a template. Built from scratch.</li>
+      <li><span class="row-num">04</span>Published 7 public Kaggle notebooks and deployed 3 web projects — a soccer education site, this portfolio, and a React productivity app — all live on the internet.</li>
+      <li><span class="row-num">05</span>Showed up consistently — to training, to projects, to growth — even on the days it didn't feel worth it. That's the one that compounds the slowest and matters the most.</li>
+    </ul>
+  </div>
+
+  <!-- ── 08 CURRENTLY BUILDING ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">NOW</div>
+    <div class="section-eyebrow">08 — Learning and Growth</div>
+    <h2>What I'm <em>Working On</em></h2>
+    <p class="body-text">Growth is never done. I'm always somewhere in the middle of becoming.</p>
+    <div class="two-col">
+      <div class="two-col-item">
+        <h3>Currently Building</h3>
+        <ul>
+          <li>Projects 09 and 10 — Job Market and World Happiness Report</li>
+          <li>SQL + Python Pipeline — end to end database workflow</li>
+          <li>Deepening SQL — window functions, CTEs, subqueries</li>
+          <li>Submitting internship applications for junior analyst roles</li>
+          <li>Growing Kaggle profile with each completed project</li>
+        </ul>
+      </div>
+      <div class="two-col-item">
+        <h3>Things That Inspire Me</h3>
+        <ul>
+          <li>People who built something from very little</li>
+          <li>A dataset that tells a story nobody expected</li>
+          <li>The sound of a chord that finally clicks right</li>
+          <li>Anyone who chose consistency over shortcuts</li>
+          <li>Stories of people who crossed borders and made it</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="subsection-eyebrow">Currently Reading / Learning</p>
+    <div class="reading-card">
+      <div class="reading-icon">📖</div>
+      <div>
+        <div class="reading-label">Active Resource</div>
+        <div class="reading-title">Python for Data Analysis — Wes McKinney</div>
+        <div class="reading-desc">The book written by the creator of Pandas. Working through it alongside my projects — applying each concept directly to real datasets rather than just reading about it.</div>
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-icon">💻</div>
+      <div>
+        <div class="reading-label">Online Practice</div>
+        <div class="reading-title">SQL on Mode Analytics &amp; LeetCode</div>
+        <div class="reading-desc">Practising SQL queries daily — SELECT, WHERE, GROUP BY, JOIN, subqueries. Building the muscle memory that makes database work feel natural.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 09 CREATIVE SIDE ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">09 — Creative Side</div>
+    <h2>The Other <em>Side</em> of Me</h2>
+    <p class="body-text">Music and soccer aren't separate from my data work — they're where my analytical instincts were trained. Soccer taught me to read a situation in real time and act on incomplete information. Music taught me to find structure in something that feels like noise. Both of those skills show up every time I open a dataset.</p>
+  </div>
+
+  <!-- ── 10 WHEN IT GOT HARD ── -->
+  <div class="section-wrap fade-in">
+    <div class="watermark">GRIT</div>
+    <div class="section-eyebrow">10 — Challenges and Determination</div>
+    <h2>When It Got <em>Hard</em></h2>
+    <p class="body-text">Three countries, three school systems, multiple low-motivation seasons where the goal felt too far away to matter. What I learned from all of it — not from a book but from living it — is that motivation is a liar. Discipline is the only thing that shows up when motivation doesn't. Every transition I've been through has had one answer: adapt, focus on what you can control, and keep going.</p>
+    <div class="highlight-box">
+      <p>🔑 <strong>The lesson I keep coming back to:</strong> You don't have to feel ready. You just have to show up anyway.</p>
+    </div>
+  </div>
+
+  <!-- ── 11 VISION ── -->
+  <div class="section-wrap fade-in" id="vision">
+    <div class="watermark">FUTURE</div>
+    <div class="section-eyebrow">11 — Future Vision</div>
+    <h2>Where I'm <em>Headed</em></h2>
+    <p class="body-text">I'm targeting junior data analyst roles at tech companies, startups, or organisations working on social impact — places where data actually drives decisions and clear communication matters as much as technical skill. That's the kind of environment where what I bring is most valuable.</p>
+    <p class="body-text">Every project I build right now is a step toward that. Every dataset I explore, every query I write, every chart I make — it's all going somewhere. The work is quiet and consistent, and the results compound.</p>
+    <p class="body-text">But beyond the career, I see someone who's given back. Someone who made it easier for the next person coming from where I came from. I want to be proof that crossing borders and staying disciplined can take you somewhere worth going.</p>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">My Growth Timeline</div>
+    <h2>Past to Present to <em>Future</em></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot past"></div>
+        <p class="timeline-era">Past</p>
+        <p class="timeline-title">Roots and Resilience</p>
+        <p class="timeline-desc">DRC to Zimbabwe — building a foundation of adaptability, discipline, and identity across cultures.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot now"></div>
+        <p class="timeline-era">Now</p>
+        <p class="timeline-title">Data and Code</p>
+        <p class="timeline-desc">Building in the USA — 5 data projects completed, Python + SQL + Power BI in the stack. Turning skill into proof every week.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot future"></div>
+        <p class="timeline-era">Future</p>
+        <p class="timeline-title">Analyst and Impact</p>
+        <p class="timeline-desc">Data analyst, data scientist, community figure — turning the journey into a story that opens doors for others.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FUN FACTS ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">12 — Quick Facts</div>
+    <h2>A Few Things You <em>Should Know</em></h2>
+    <ul class="row-list">
+      <li><span class="row-num">✦</span>I've lived in three countries on two continents — which means I hold a set of perspectives most people only get from a documentary.</li>
+      <li><span class="row-num">✦</span>I can go from debugging Python to picking up a guitar in the same afternoon — and those two things actually make each other better.</li>
+    </ul>
+  </div>
+
+  <!-- ── FEATURED PROJECTS ── -->
+  <div class="section-wrap fade-in" id="featured">
+    <div class="section-eyebrow">Featured Work</div>
+    <h2>Projects That <em>Prove It</em></h2>
+    <p class="body-text">Not descriptions of what I can do. Actual work I built and published.</p>
+    <div class="card-grid" style="margin-top:2rem;">
+      <div class="card" style="border-left:none;padding:2rem;">
+        <div class="card-icon">📊</div>
+        <h3>Retail Sales Analysis</h3>
+        <p>Cleaned 9,994 rows. Found $22k in hidden losses across 3 sub-categories. Built 4 Matplotlib charts. Published on GitHub + Kaggle.</p>
+        <div class="tag-group" style="margin-top:1rem;">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+        </div>
+        <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.kaggle.com/code/mingangolo/retailsale" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.4);text-decoration:none;"><i class="fa-solid fa-database"></i> Kaggle</a>
+        </div>
+      </div>
+      <div class="card" style="border-left:none;padding:2rem;">
+        <div class="card-icon">⚽</div>
+        <h3>Soccer Intelligence Dashboard</h3>
+        <p>25,979 matches. 9 notebooks. 2 ML models. Power BI dashboard. Proved home advantage holds across 30 seasons of Premier League data.</p>
+        <div class="tag-group" style="margin-top:1rem;">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">ML</span>
+        </div>
+        <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="https://github.com/Minga17/soccer-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://app.powerbi.com/links/wNim_IbQmj?ctid=6f344524-0aa9-4416-89d6-7f1bb85a1364&pbi_source=linkShare" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.4);text-decoration:none;"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="project.html" class="cta-btn primary">View All 11 Projects <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- ── PROJECT FILES ── -->
+  <div class="section-wrap fade-in" id="files">
+    <div class="section-eyebrow">Grab the Files</div>
+    <h2>Notebooks, Charts &amp; <em>Data</em></h2>
+    <p class="body-text">Every project below is fully public — Jupyter notebooks, chart images, and clean CSVs. No request needed, just click through to GitHub.</p>
+    <div class="card-grid" style="margin-top:2rem;">
+      <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
+        <div class="card-icon">📊</div>
+        <h3>Retail Sales Analysis</h3>
+        <p>Notebook · 4 Charts · CSV</p>
+        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
+      </a>
+      <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
+        <div class="card-icon">⚽</div>
+        <h3>Premier League Analysis</h3>
+        <p>Notebook · 4 Charts</p>
+        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
+      </a>
+      <a href="https://github.com/Minga17/covid19-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
+        <div class="card-icon">🦠</div>
+        <h3>COVID-19 Global Trends</h3>
+        <p>Notebook · 4 Charts · CSV</p>
+        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
+      </a>
+      <a href="https://github.com/Minga17/netflix-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
+        <div class="card-icon">🎬</div>
+        <h3>Netflix Content Analysis</h3>
+        <p>Notebook · 4 Charts · CSV</p>
+        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
+      </a>
+      <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
+        <div class="card-icon">🏆</div>
+        <h3>Soccer Intelligence Dashboard</h3>
+        <p>9 Notebooks · Power BI Dashboard</p>
+        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <div class="contact-section fade-in">
+    <div class="section-eyebrow" style="justify-content:center;">Open to Opportunities</div>
+    <h2>Let's <em>Connect</em></h2>
+    <p>I'm actively looking for internships and junior data analyst roles. If you're working on something interesting with data — or know someone who is — I'd love to hear about it.</p>
+    <div class="cta-group" style="justify-content:center;">
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/Minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="project.html" class="cta-btn ghost"><i class="fa-solid fa-chart-bar"></i> View Projects</a>
+    </div>
+    <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(212,130,10,0.1);">
+      <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);color:rgba(245,240,232,0.5);max-width:600px;margin:0 auto;line-height:1.6;">
+        "Stay consistent, even when you don't feel like it. Envision a future where growth and life thrive beyond today."
+      </p>
+      <p style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-top:1rem;">— Minga Ngolo</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="#" class="footer-logo">Minga <span>Ngolo</span></a>
+      <div class="footer-tagline">DRC · Zimbabwe · USA — Building with Data</div>
+      <div class="footer-social">
+        <a href="https://github.com/Minga17" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.kaggle.com/mingangolo" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a>
+      </div>
+      <div class="visitor-line">👁 <span id="footer-visitors">—</span> people have visited this portfolio</div>
+    </div>
+    <a href="project.html" class="footer-link">
+      View Projects <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </footer>
+
+  <script>
+    // ── Scroll progress bar ──────────────────────────────────────────────────
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      scrollBar.style.width = pct + '%';
+    });
+
+    // ── Back to top ──────────────────────────────────────────────────────────
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Typewriter effect ────────────────────────────────────────────────────
+    const phrases = [
+      'Turning raw data into clear answers —',
+      'one project at a time.'
+    ];
+    const fullText = phrases.join('\n');
+    let i = 0;
+    const tw = document.getElementById('typewriter');
+    function type() {
+      if (i <= fullText.length) {
+        tw.innerHTML = fullText.slice(0, i).replace('\n', '<br>');
+        i++;
+        setTimeout(type, i < phrases[0].length ? 40 : 60);
+      }
+    }
+    setTimeout(type, 600);
+
+    // ── Animated counter ─────────────────────────────────────────────────────
+    function animateCount(el, target, duration = 1800, prefix = '', suffix = '') {
+      const start = performance.now();
+      const isLarge = target >= 1000;
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = Math.round(ease * target);
+        el.textContent = prefix + (isLarge ? val.toLocaleString() : val) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const targets = {
+            'stat-rows':     361302,
+            'stat-done':     5,
+            'stat-repos':    2,
+            'stat-kaggle':   7,
+            'stat-total':    11,
+          };
+          Object.entries(targets).forEach(([id, val]) => {
+            const el = document.getElementById(id);
+            if (el) animateCount(el, val);
+          });
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsStrip = document.querySelector('.stats-strip');
+    if (statsStrip) statsObserver.observe(statsStrip);
+
+    // ── Fade-in observer ─────────────────────────────────────────────────────
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.transitionDelay = i * 0.04 + 's';
+      observer.observe(el);
+    });
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }, 300);
+
+    // ── Scroll spy ───────────────────────────────────────────────────────────
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+    });
+
+    // ── Skills radar chart ───────────────────────────────────────────────────
+    const ctx = document.getElementById('skillsRadar');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Python', 'SQL', 'Data Viz', 'Statistics', 'Excel', 'Communication'],
+          datasets: [{
+            label: 'Skill Level',
+            data: [70, 55, 68, 55, 72, 85],
+            backgroundColor: 'rgba(212,130,10,0.12)',
+            borderColor: 'rgba(212,130,10,0.8)',
+            pointBackgroundColor: 'rgba(240,180,41,0.9)',
+            pointBorderColor: '#0f0e0d',
+            pointHoverBackgroundColor: '#f0b429',
+            borderWidth: 2,
+            pointRadius: 4,
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            r: {
+              min: 0, max: 100,
+              ticks: { display: false, stepSize: 20 },
+              grid: { color: 'rgba(212,130,10,0.12)' },
+              angleLines: { color: 'rgba(212,130,10,0.12)' },
+              pointLabels: {
+                color: 'rgba(245,240,232,0.55)',
+                font: { family: 'Syne', size: 11, weight: '600' }
+              }
+            }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // ── Log page view ────────────────────────────────────────────────────────
+    API.logPageView('index');
+
+    // ── Load live stats from backend ─────────────────────────────────────────
+    API.getStats().then(data => {
+      if (!data) return;
+      const fmt = n => n >= 1000 ? n.toLocaleString() : n;
+      if (data.unique_visitors) {
+        document.getElementById('stat-visitors').textContent = fmt(data.unique_visitors);
+        const fv = document.getElementById('footer-visitors');
+        if (fv) fv.textContent = fmt(data.unique_visitors);
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+# project html 2
+<!DOCTYPE html>
+<html lang="en">
+<hea>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minga Ngolo — Projects & Build Log</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="/static/js/api.js"></script>
+  <style>
+    :root {
+      --ink:    #0f0e0d;
+      --cream:  #f5f0e8;
+      --amber:  #d4820a;
+      --gold:   #f0b429;
+      --rust:   #c04e2a;
+      --sage:   #4a6c5e;
+      --paper:  #faf7f2;
+      --muted:  #7a7265;
+      --border: rgba(212,130,10,0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Pro', Georgia, serif;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 1.125rem;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a1814; }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 9px; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(15,14,13,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--amber); }
+
+    /* ── HERO HEADER ── */
+    .page-hero {
+      padding: 12rem 6rem 6rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .page-hero::after {
+      content: 'PROJECTS';
+      position: absolute;
+      right: 4rem;
+      top: 8rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 10rem;
+      color: rgba(212,130,10,0.04);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .page-hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: -0.025em;
+      margin-bottom: 1.8rem;
+    }
+
+    .page-hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .page-hero p {
+      font-size: 1.2rem;
+      color: rgba(245,240,232,0.6);
+      max-width: 580px;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      gap: 3rem;
+      padding: 2rem 6rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(212,130,10,0.12);
+      border-bottom: 1px solid rgba(212,130,10,0.12);
+      margin-bottom: 5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(212,130,10,0.2);
+      align-self: stretch;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      padding: 0 6rem;
+      max-width: 1300px;
+      margin: 0 auto 3rem;
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      border: 1px solid rgba(212,130,10,0.25);
+      color: rgba(245,240,232,0.45);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--amber);
+      color: var(--amber);
+      background: rgba(212,130,10,0.08);
+    }
+
+    /* ── PROJECT ENTRIES ── */
+    .projects-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 6rem 8rem;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 3rem;
+      border: 1px solid rgba(212,130,10,0.14);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.025);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, background 0.25s, transform 0.25s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(212,130,10,0.4);
+      background: rgba(255,255,255,0.045);
+      transform: translateY(-3px);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+    }
+
+    .project-card.status-done::before    { background: var(--amber); }
+    .project-card.status-active::before  { background: var(--gold); }
+    .project-card.status-planned::before { background: var(--muted); opacity: 0.5; }
+
+    .project-card::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,130,10,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── PROJECT META COLUMN ── */
+    .project-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding-top: 0.2rem;
+    }
+
+    .project-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      color: var(--amber);
+      opacity: 0.15;
+      line-height: 1;
+    }
+
+    .project-date {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.4);
+    }
+
+    .project-date-sub {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: rgba(245,240,232,0.25);
+      margin-top: -0.4rem;
+    }
+
+    .project-status-badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .badge-done    { background: rgba(212,130,10,0.15); color: var(--amber); }
+    .badge-active  { background: rgba(240,180,41,0.15); color: var(--gold); }
+    .badge-planned { background: rgba(122,114,101,0.12); color: var(--muted); }
+
+    /* ── PROJECT CONTENT COLUMN ── */
+    .project-category {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-card.status-active .project-category { color: var(--gold); }
+    .project-card.status-planned .project-category { color: var(--muted); }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.015em;
+    }
+
+    .project-desc {
+      font-size: 1.05rem;
+      color: rgba(245,240,232,0.58);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-desc strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    /* ── KEY INSIGHTS BOX ── */
+    .insights-box {
+      background: rgba(212,130,10,0.06);
+      border: 1px solid rgba(212,130,10,0.2);
+      border-radius: 8px;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .insights-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .insights-box p {
+      font-size: 0.98rem;
+      color: rgba(245,240,232,0.6);
+      line-height: 1.7;
+      margin-bottom: 0.4rem;
+    }
+
+    .insights-box p:last-child { margin-bottom: 0; }
+
+    /* ── TAGS ── */
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tag {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(212,130,10,0.2);
+      border-radius: 4px;
+      color: rgba(245,240,232,0.38);
+    }
+
+    /* ── LINKS ── */
+    .project-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--gold);
+      gap: 0.8rem;
+    }
+
+    .project-link.secondary {
+      color: rgba(245,240,232,0.35);
+      font-weight: 600;
+    }
+
+    .project-link.secondary:hover {
+      color: rgba(245,240,232,0.6);
+    }
+
+    .project-link.disabled {
+      color: rgba(245,240,232,0.2);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* ── GOAL PROGRESS ── */
+    .goal-progress {
+      max-width: 1300px;
+      margin: 0 auto 5rem;
+      padding: 0 6rem;
+    }
+
+    .goal-progress h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .goal-progress h3::after {
+      content: '';
+      flex: 0 0 24px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    .progress-tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .progress-item {
+      display: grid;
+      grid-template-columns: 220px 1fr 60px;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .progress-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(245,240,232,0.55);
+    }
+
+    .progress-track {
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber), var(--gold));
+      border-radius: 10px;
+      transform-origin: left;
+      animation: fillBar 1.4s cubic-bezier(0.22,1,0.36,1) forwards;
+      transform: scaleX(0);
+    }
+
+    @keyframes fillBar { to { transform: scaleX(1); } }
+
+    .progress-pct {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--amber);
+      text-align: right;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center;
+      padding: 5rem 2rem;
+      border: 1px dashed rgba(212,130,10,0.2);
+      border-radius: 12px;
+      margin-top: 0.5rem;
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1.2rem;
+      opacity: 0.4;
+    }
+
+    .empty-state h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: rgba(245,240,232,0.35);
+      margin-bottom: 0.7rem;
+    }
+
+    .empty-state p {
+      font-size: 1rem;
+      color: rgba(245,240,232,0.25);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(212,130,10,0.12);
+      padding: 3rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--amber); }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.3);
+      margin-top: 0.2rem;
+    }
+
+    .footer-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .footer-back:hover { gap: 0.9rem; }
+    .nav-social { display: flex; align-items: center; gap: 1.2rem; margin-left: 1rem; padding-left: 1.5rem; border-left: 1px solid rgba(212,130,10,0.2); }
+    .nav-social a { color: rgba(245,240,232,0.4); font-size: 1rem; text-decoration: none; transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
+    .nav-social a:hover { color: var(--amber); transform: translateY(-2px); }
+    .footer-social { display: flex; align-items: center; gap: 1.2rem; margin-top: 0.9rem; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-social a:hover { color: var(--amber); }
+    .footer-social a i { font-size: 0.95rem; }
+    .chart-preview { width: 100%; border-radius: 8px; border: 1px dashed rgba(212,130,10,0.22); margin-bottom: 1.4rem; overflow: hidden; background: rgba(255,255,255,0.02); min-height: 160px; display: flex; align-items: center; justify-content: center; }
+    .chart-preview img { width: 100%; height: auto; display: block; border-radius: 7px; }
+    .chart-preview-placeholder { text-align: center; padding: 2rem 1.5rem; }
+    .chart-preview-placeholder i { font-size: 1.8rem; color: rgba(212,130,10,0.22); display: block; margin-bottom: 0.6rem; }
+    .chart-preview-placeholder p { font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.18); }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── SHARED SECTION HEADERS ── */
+    .section-eyebrow {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .section-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+    .section-heading em { color: var(--gold); font-style: italic; }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      max-width: 1300px;
+      margin: 0 auto 6rem;
+      padding: 0 6rem;
+    }
+    .quote-inner {
+      position: relative;
+      padding: 4rem 5rem;
+      border: 1px solid rgba(212,130,10,0.18);
+      border-radius: 16px;
+      background: rgba(212,130,10,0.04);
+      text-align: center;
+      overflow: hidden;
+    }
+    .quote-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212,130,10,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .quote-mark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 8rem;
+      line-height: 0.6;
+      color: var(--amber);
+      opacity: 0.12;
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
+    .quote-inner blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.4;
+      color: var(--cream);
+      letter-spacing: -0.015em;
+      font-style: normal;
+      margin-bottom: 1.5rem;
+      border: none;
+      padding: 0;
+    }
+    .quote-inner blockquote em { color: var(--gold); font-style: italic; }
+    .quote-attr {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.3);
+    }
+
+    /* ── TIMELINE ── */
+    .timeline-section {
+      max-width: 1300px;
+      margin: 0 auto 6rem;
+      padding: 0 6rem;
+    }
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(212,130,10,0.3) 10%, rgba(212,130,10,0.3) 90%, transparent);
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 2rem;
+      padding: 2rem 0 2rem 2rem;
+      position: relative;
+      border-bottom: 1px solid rgba(212,130,10,0.07);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-dot {
+      position: absolute;
+      left: -0.38rem;
+      top: 2.5rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 2px solid rgba(212,130,10,0.35);
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .timeline-item.active .timeline-dot {
+      background: var(--gold);
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(240,180,41,0.4);
+    }
+    .timeline-date {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      padding-top: 0.3rem;
+    }
+    .timeline-content h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .timeline-content p {
+      font-size: 1rem;
+      color: rgba(245,240,232,0.5);
+      line-height: 1.75;
+    }
+
+    /* ── TECH STACK ── */
+    .stack-section {
+      max-width: 1300px;
+      margin: 0 auto 6rem;
+      padding: 0 6rem;
+    }
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .stack-card {
+      padding: 1.8rem 1.8rem 1.5rem;
+      border: 1px solid rgba(212,130,10,0.14);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .stack-card:hover {
+      border-color: rgba(212,130,10,0.35);
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-3px);
+    }
+    .stack-card.data-tool {
+      border-color: rgba(212,130,10,0.22);
+      background: rgba(212,130,10,0.04);
+    }
+    .stack-icon {
+      font-size: 1.8rem;
+      color: var(--amber);
+      margin-bottom: 0.8rem;
+      opacity: 0.85;
+    }
+    .stack-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--cream);
+      margin-bottom: 0.9rem;
+    }
+    .stack-level {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .stack-bar {
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stack-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--amber), var(--gold));
+      border-radius: 10px;
+      transform-origin: left;
+      animation: fillBar 1.4s cubic-bezier(0.22,1,0.36,1) forwards;
+      transform: scaleX(0);
+    }
+    .stack-level span {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.28);
+    }
+    .stack-section-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(212,130,10,0.65);
+      margin-bottom: 1rem;
+      margin-top: 2.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(212,130,10,0.12);
+    }
+    .stack-section-label:first-of-type { margin-top: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav, .page-hero, .stats-bar, .filter-bar,
+      .projects-container, .goal-progress { padding-left: 3rem; padding-right: 3rem; }
+      .quote-section, .timeline-section, .stack-section { padding-left: 3rem; padding-right: 3rem; }
+      footer { padding: 3rem; }
+      .project-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      .project-number { font-size: 2.5rem; }
+      .page-hero::after { display: none; }
+      .quote-inner { padding: 3rem 2.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .page-hero, .stats-bar, .filter-bar,
+      .projects-container, .goal-progress { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .quote-section, .timeline-section, .stack-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+      .stats-bar { flex-wrap: wrap; gap: 1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+      .stat-divider { display: none; }
+      .progress-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .progress-pct { text-align: left; }
+      .quote-inner { padding: 2.5rem 1.5rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Minga <span>Ngolo</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Profile</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#vision">Vision</a></li>
+      <li><a href="project.html" class="active">Projects</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-eyebrow fade-in">The Build Log</div>
+    <h1 class="fade-in">Every Project.<br><em>Every Step.</em><br>All of It Here.</h1>
+    <p class="fade-in">
+      This is my living record: a log of everything I build on the road
+      to my goals. Data projects, web work, and everything in between.
+      It starts here. Over time, it becomes proof that the work was real.
+    </p>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar fade-in">
+    <div class="stat-item">
+      <div class="stat-num" id="count-total">0</div>
+      <div class="stat-label">Total Projects</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" id="count-done">0</div>
+      <div class="stat-label">Completed</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" id="count-active">0</div>
+      <div class="stat-label">In Progress</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num" id="count-planned">0</div>
+      <div class="stat-label">Planned</div>
+    </div>
+  </div>
+
+  <!-- GOAL PROGRESS -->
+  <div class="goal-progress fade-in">
+    <h3>Progress Toward Goals</h3>
+    <div class="progress-tracks">
+      <div class="progress-item">
+        <div class="progress-label">Python &amp; Pandas</div>
+        <div class="progress-track"><div class="progress-fill" style="width:58%"></div></div>
+        <div class="progress-pct">58%</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">SQL &amp; Databases</div>
+        <div class="progress-track"><div class="progress-fill" style="width:28%"></div></div>
+        <div class="progress-pct">28%</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">Data Visualization</div>
+        <div class="progress-track"><div class="progress-fill" style="width:55%"></div></div>
+        <div class="progress-pct">55%</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">Portfolio &amp; Personal Brand</div>
+        <div class="progress-track"><div class="progress-fill" style="width:72%"></div></div>
+        <div class="progress-pct">72%</div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">Internship Readiness</div>
+        <div class="progress-track"><div class="progress-fill" style="width:42%"></div></div>
+        <div class="progress-pct">42%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar fade-in">
+    <button class="filter-btn active" data-filter="all">All Projects</button>
+    <button class="filter-btn" data-filter="data">Data Projects</button>
+    <button class="filter-btn" data-filter="web">Web Background</button>
+    <button class="filter-btn" data-filter="done">Completed</button>
+    <button class="filter-btn" data-filter="active">In Progress</button>
+    <button class="filter-btn" data-filter="planned">Planned</button>
+  </div>
+
+  <!-- PROJECTS LIST — rendered dynamically from API -->
+  <div class="projects-container">
+    <div class="projects-list" id="projects-list">
+
+      <!-- Loading state -->
+      <div id="projects-loading" style="text-align:center;padding:4rem 2rem;">
+        <p style="font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);">Loading projects...</p>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- QUOTE -->
+  <div class="quote-section fade-in">
+    <div class="quote-inner">
+      <div class="quote-mark">"</div>
+      <blockquote>
+        I am not waiting to be ready.<br>
+        I am <em>becoming</em> ready one build at a time.
+      </blockquote>
+      <div class="quote-attr">— Minga Ngolo</div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section fade-in">
+    <div class="section-eyebrow">The Journey</div>
+    <h3 class="section-heading">From Day One<br><em>to Right Now</em></h3>
+    <div class="timeline">
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023</div>
+        <div class="timeline-content">
+          <h4>The Decision</h4>
+          <p>Made the commitment to pursue software development and IT. Picked up HTML for the first time and started building, not just watching tutorials, but actually making things.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Aug 2025</div>
+        <div class="timeline-content">
+          <h4>First Real Project</h4>
+          <p>Built the Soccer Term Website, my first complete HTML project. Wrote every tag by hand. Learned what it feels like to create something that lives in a browser.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Dec 2025</div>
+        <div class="timeline-content">
+          <h4>Identity on the Web</h4>
+          <p>Completed my Personal Web Page and Dev Daily Plan app. Started levelling up into React, JSX, and Tailwind CSS, modern tools used by real developers.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item active fade-in">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2026</div>
+        <div class="timeline-content">
+          <h4>The Data Pivot</h4>
+          <p>Pivoted into data analysis. Learning Python, Pandas, SQL, and visualization. Building real projects with real datasets. The goal is clear: analyst role, then data scientist. The work starts now.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="stack-section fade-in">
+    <div class="section-eyebrow">Tools of the Trade</div>
+    <h3 class="section-heading">My Tech<br><em>Stack</em></h3>
+
+    <p class="stack-section-label">Data Tools & Primary Focus</p>
+    <div class="stack-grid">
+
+      <div class="stack-card data-tool fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="stack-name">Python</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:40%"></div></div>
+          <span>Learning Fast</span>
+        </div>
+      </div>
+
+      <div class="stack-card data-tool fade-in">
+        <div class="stack-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="stack-name">SQL</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:30%"></div></div>
+          <span>Learning</span>
+        </div>
+      </div>
+
+      <div class="stack-card data-tool fade-in">
+        <div class="stack-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="stack-name">Pandas / NumPy</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:38%"></div></div>
+          <span>Learning</span>
+        </div>
+      </div>
+
+      <div class="stack-card data-tool fade-in">
+        <div class="stack-icon"><i class="fa-solid fa-chart-bar"></i></div>
+        <div class="stack-name">Matplotlib / Seaborn</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:35%"></div></div>
+          <span>Learning</span>
+        </div>
+      </div>
+
+      <div class="stack-card data-tool fade-in">
+        <div class="stack-icon"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="stack-name">Excel</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:58%"></div></div>
+          <span>Growing</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="stack-section-label">Web Development Foundation</p>
+    <div class="stack-grid">
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-html5"></i></div>
+        <div class="stack-name">HTML</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:80%"></div></div>
+          <span>Confident</span>
+        </div>
+      </div>
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-css3-alt"></i></div>
+        <div class="stack-name">CSS</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:65%"></div></div>
+          <span>Growing</span>
+        </div>
+      </div>
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-js"></i></div>
+        <div class="stack-name">JavaScript</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:45%"></div></div>
+          <span>Learning</span>
+        </div>
+      </div>
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-react"></i></div>
+        <div class="stack-name">React</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:35%"></div></div>
+          <span>Learning</span>
+        </div>
+      </div>
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-brands fa-git-alt"></i></div>
+        <div class="stack-name">Git / GitHub</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:50%"></div></div>
+          <span>Growing</span>
+        </div>
+      </div>
+
+      <div class="stack-card fade-in">
+        <div class="stack-icon"><i class="fa-solid fa-globe"></i></div>
+        <div class="stack-name">Netlify</div>
+        <div class="stack-level">
+          <div class="stack-bar"><div class="stack-fill" style="width:55%"></div></div>
+          <span>Growing</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <a href="/" class="footer-logo">Minga <span>Ngolo</span></a>
+      <div class="footer-tagline">Aspiring Data Analyst · Builder · Zimbabwe → USA → Data</div>
+      <div class="footer-social">
+        <a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+        <a href="https://github.com/Minga17" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.kaggle.com/minga17" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a>
+      </div>
+    </div>
+    <a href="/" class="footer-back">
+      <i class="fa-solid fa-arrow-left"></i> Back to Profile
+    </a>
+  </footer>
+
+  <script>
+    // ── Fade-in observer ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+
+    function observeAll() {
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+    observeAll();
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+    }, 400);
+
+    // ── Log page view ──
+    API.logPageView('projects');
+
+    // ── Card renderer ──────────────────────────────────────────────────────────
+    function buildLinks(p) {
+      let html = '';
+      if (p.github_url) {
+        html += `<a href="${p.github_url}" class="project-link" target="_blank">
+          <i class="fa-brands fa-github"></i> GitHub <i class="fa-solid fa-arrow-right"></i>
+        </a>`;
+      }
+      if (p.kaggle_url) {
+        html += `<a href="${p.kaggle_url}" class="project-link secondary" target="_blank">
+          <i class="fa-solid fa-database"></i> Kaggle Notebook
+        </a>`;
+      }
+      if (p.powerbi_url) {
+        html += `<a href="${p.powerbi_url}" class="project-link secondary" target="_blank">
+          <i class="fa-solid fa-chart-pie"></i> Live Dashboard
+        </a>`;
+      }
+      if (p.live_url) {
+        html += `<a href="${p.live_url}" class="project-link" target="_blank">
+          View Site <i class="fa-solid fa-arrow-right"></i>
+        </a>`;
+      }
+      if (!p.github_url && !p.kaggle_url && !p.powerbi_url && !p.live_url) {
+        html += `<span class="project-link disabled">Planned <i class="fa-solid fa-clock"></i></span>`;
+      }
+      return html;
+    }
+
+    const AMBER_STYLE = 'font-family:\'Syne\',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber)';
+    const GOLD_STYLE  = 'font-family:\'Syne\',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)';
+    const MUTED_STYLE = 'font-family:\'Syne\',sans-serif;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)';
+
+    function labelStyle(status) {
+      if (status === 'active')  return GOLD_STYLE;
+      if (status === 'planned') return MUTED_STYLE;
+      return AMBER_STYLE;
+    }
+
+    function renderCard(p, index) {
+      const num      = String(p.number).padStart(2, '0');
+      const sClass   = { done: 'status-done', active: 'status-active', planned: 'status-planned' }[p.status] || 'status-planned';
+      const bClass   = { done: 'badge-done',  active: 'badge-active',  planned: 'badge-planned'  }[p.status] || 'badge-planned';
+      const bText    = { done: 'Completed',   active: 'In Progress',   planned: 'Planned'         }[p.status] || 'Planned';
+
+      const insightsHtml = p.insights && p.insights.length
+        ? `<div class="insights-box">
+            <div class="insights-label">⚡ Key Insights</div>
+            ${p.insights.map(i => `<p>→ ${i}</p>`).join('')}
+           </div>` : '';
+
+      const chartHtml = p.chart_image
+        ? `<div class="chart-preview"><img src="${p.chart_image}" alt="${p.title} chart" /></div>`
+        : '';
+
+      const problemHtml = p.problem
+        ? `<p class="project-desc"><strong style="${labelStyle(p.status)}">Problem —</strong><br>${p.problem}</p>`
+        : '';
+
+      const didHtml = p.what_i_did
+        ? `<p class="project-desc"><strong style="${labelStyle(p.status)}">What I Did —</strong><br>${p.what_i_did}</p>`
+        : '';
+
+      const tagsHtml = (p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('');
+
+      return `
+        <div class="project-card ${sClass} fade-in" data-status="${p.status}" data-category="${p.type}"
+             style="transition-delay:${index * 0.08}s">
+          <div class="project-meta">
+            <div class="project-number">${num}</div>
+            <div class="project-date">${p.date || ''}</div>
+            ${p.date_sub ? `<div class="project-date-sub">${p.date_sub}</div>` : ''}
+            <span class="project-status-badge ${bClass}">${bText}</span>
+          </div>
+          <div class="project-body">
+            <div class="project-category">${p.category || ''}</div>
+            <h2 class="project-title">${p.title}</h2>
+            ${problemHtml}
+            ${didHtml}
+            ${insightsHtml}
+            ${chartHtml}
+            <div class="project-tags">${tagsHtml}</div>
+            <div class="project-links">${buildLinks(p)}</div>
+          </div>
+        </div>`;
+    }
+
+    // ── Stats counter ──────────────────────────────────────────────────────────
+    function updateStats(projects) {
+      let done = 0, active = 0, planned = 0;
+      projects.forEach(p => {
+        if (p.status === 'done')    done++;
+        if (p.status === 'active')  active++;
+        if (p.status === 'planned') planned++;
+      });
+      document.getElementById('count-total').textContent   = projects.length;
+      document.getElementById('count-done').textContent    = done;
+      document.getElementById('count-active').textContent  = active;
+      document.getElementById('count-planned').textContent = planned;
+    }
+
+    // ── Filter logic ──────────────────────────────────────────────────────────
+    let activeFilter = 'all';
+
+    function applyFilter() {
+      document.querySelectorAll('.project-card').forEach(card => {
+        const f = activeFilter;
+        let show = f === 'all'
+          || (f === 'data' || f === 'web' ? card.dataset.category === f : card.dataset.status === f);
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilter();
+      });
+    });
+
+    // ── Fetch + render all projects from API ───────────────────────────────────
+    async function loadProjects() {
+      const list = document.getElementById('projects-list');
+      const loading = document.getElementById('projects-loading');
+
+      const projects = await API.getProjects();
+
+      if (!projects || projects.length === 0) {
+        loading.innerHTML = '<p style="text-align:center;color:rgba(245,240,232,0.3);font-size:1rem;">No projects found — make sure the backend is running.</p>';
+        return;
+      }
+
+      loading.remove();
+      list.innerHTML = projects.map((p, i) => renderCard(p, i)).join('');
+
+      updateStats(projects);
+      applyFilter();
+      observeAll();
+      setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+      }, 100);
+    }
+
+    loadProjects();
+  </script>
+
+</body>
+</html>

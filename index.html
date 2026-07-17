@@ -138,6 +138,14 @@
     .cta-btn.primary:hover { background: var(--gold); transform: translateY(-2px); }
     .cta-btn.ghost { border: 1px solid rgba(212,130,10,0.35); color: var(--amber); background: transparent; }
     .cta-btn.ghost:hover { border-color: var(--amber); background: rgba(212,130,10,0.08); transform: translateY(-2px); }
+    /* ── Hero photo ── */
+    .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .hero-photo-wrap { position: relative; flex-shrink: 0; }
+    .hero-photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 3px solid var(--amber); display: block; }
+    .hero-photo-ring { position: absolute; inset: -10px; border-radius: 50%; border: 1px solid rgba(212,130,10,0.2); }
+    .hero-photo-dot { position: absolute; bottom: 12px; right: 12px; width: 14px; height: 14px; border-radius: 50%; background: #6bbf9e; border: 2px solid var(--ink); }
+    @media (max-width: 1024px) { .hero-inner { grid-template-columns: 1fr; } .hero-photo-wrap { display: none; } }
+    @media (max-width: 640px) { .hero-photo-wrap { display: none; } }
     .tools-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; padding: 1.5rem 2rem; background: rgba(212,130,10,0.04); border: 1px solid rgba(212,130,10,0.12); border-radius: 10px; }
     .tool-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; padding: 0.35rem 0.9rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.25); color: rgba(245,240,232,0.55); background: rgba(255,255,255,0.03); }
     .tool-pill i { color: var(--amber); font-size: 0.75rem; }
@@ -290,25 +298,35 @@
 
   <!-- ── HERO ── -->
   <div class="page-hero" id="about">
-    <div class="otw-banner fade-in">
-      <span class="otw-dot"></span>
-      Available · Internships &amp; Junior Analyst Roles
-    </div>
-    <span class="badge badge-pulse fade-in">
-      <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;"></span>
-      Currently Learning · Python &amp; SQL
-    </span>
-    <div class="hero-eyebrow fade-in">Junior Data Analyst &nbsp;·&nbsp; Omaha, NE, USA</div>
-    <h1 class="fade-in">Emmanuel<br><em>Minga.</em></h1>
-    <p class="hero-tagline fade-in"><span id="typewriter"></span><span class="typewriter-cursor"></span></p>
-    <div class="hero-three-words fade-in">
-      <span class="word-pill">Data Analyst</span>
-      <span class="word-pill">Consistent</span>
-      <span class="word-pill">Problem Solver</span>
-    </div>
-    <div class="cta-group fade-in">
-      <a href="https://github.com/Minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <div class="hero-inner">
+      <div>
+        <div class="otw-banner fade-in">
+          <span class="otw-dot"></span>
+          Available · Internships &amp; Junior Analyst Roles
+        </div>
+        <span class="badge badge-pulse fade-in">
+          <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;"></span>
+          Currently Learning · Python &amp; SQL
+        </span>
+        <div class="hero-eyebrow fade-in">Junior Data Analyst &nbsp;·&nbsp; Omaha, NE, USA</div>
+        <h1 class="fade-in">Emmanuel<br><em>Minga.</em></h1>
+        <p class="hero-tagline fade-in"><span id="typewriter"></span><span class="typewriter-cursor"></span></p>
+        <div class="hero-three-words fade-in">
+          <span class="word-pill">Data Analyst</span>
+          <span class="word-pill">Consistent</span>
+          <span class="word-pill">Problem Solver</span>
+        </div>
+        <div class="cta-group fade-in">
+          <a href="https://github.com/Minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <!-- Profile photo — replace profile.jpg with your real photo -->
+      <div class="hero-photo-wrap fade-in">
+        <img src="/images/profile.jpg" alt="Emmanuel Minga" class="hero-photo" onerror="this.parentElement.style.display='none'" />
+        <div class="hero-photo-ring"></div>
+        <div class="hero-photo-dot" title="Available"></div>
+      </div>
     </div>
   </div>
 

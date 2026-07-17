@@ -78,7 +78,7 @@ PROJECTS = [
             "November and December alone drove 30% of annual sales — a strong seasonal pattern any business needs to plan around.",
             "Three sub-categories ran at a loss: Tables (−$17,725), Bookcases (−$3,473), and Supplies (−$1,189) — flagged as priorities for pricing or cost review.",
         ],
-        "tags": ["Python", "Pandas", "Matplotlib", "Data Cleaning", "EDA"],
+        "tags": ["Python", "Pandas", "Matplotlib", "Data Cleaning", "EDA", "9,994 Rows"],
         "github_url": "https://github.com/Minga17/retail-sales-analysis",
         "kaggle_url": "https://www.kaggle.com/code/mingangolo/retailsale",
         "live_url": None,
