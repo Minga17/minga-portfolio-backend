@@ -284,6 +284,19 @@
     .project-card.status-done::before    { background: var(--amber); }
     .project-card.status-active::before  { background: var(--gold); }
     .project-card.status-planned::before { background: var(--muted); opacity: 0.5; }
+    /* Progress tracker for planned cards */
+    .plan-progress-wrap { margin-top:1rem; }
+    .plan-progress-label { font-family:'Syne',sans-serif; font-size:0.62rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(122,114,101,0.7); margin-bottom:0.4rem; display:flex; justify-content:space-between; }
+    .plan-progress-bar-bg { width:100%; height:4px; background:rgba(122,114,101,0.15); border-radius:10px; overflow:hidden; }
+    .plan-progress-bar-fill { height:100%; background:linear-gradient(90deg, rgba(212,130,10,0.4), rgba(240,180,41,0.4)); border-radius:10px; }
+    /* Expand/collapse cards */
+    .card-body-collapse { overflow:hidden; transition:max-height 0.4s ease, opacity 0.3s ease; }
+    .card-body-collapse.collapsed { max-height:0; opacity:0; }
+    .card-body-collapse.expanded { max-height:2000px; opacity:1; }
+    .expand-btn { display:flex; align-items:center; gap:0.5rem; font-family:'Syne',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(212,130,10,0.6); background:none; border:none; cursor:pointer; padding:0.8rem 0 0; transition:color 0.2s; }
+    .expand-btn:hover { color:var(--amber); }
+    .expand-btn i { transition:transform 0.3s; font-size:0.7rem; }
+    .expand-btn.open i { transform:rotate(180deg); }
     .rows-badge { margin-top: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); background: rgba(212,130,10,0.08); border: 1px solid rgba(212,130,10,0.25); padding: 0.3rem 0.7rem; border-radius: 100px; }
     .rows-badge i { font-size: 0.65rem; }
 
@@ -998,6 +1011,11 @@
     </div>
   </div>
 
+  <!-- COMPLETED COUNTER -->
+  <div style="max-width:1300px;margin:0 auto;padding:0 6rem 1rem;text-align:right;">
+    <span id="projects-counter" style="font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;color:rgba(245,240,232,0.35);">Loading...</span>
+  </div>
+
   <!-- FILTER BAR -->
   <div class="filter-bar fade-in">
     <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -1311,6 +1329,17 @@
 
       const tagsHtml = (p.tags || []).map(t => `<span class="project-tag">${t}</span>`).join('');
 
+      // Progress bar for planned projects
+      const progressMap = { 9: 0, 10: 0, 6: 100 };
+      const progressPct = progressMap[p.number] !== undefined ? progressMap[p.number] : 0;
+      const progressHtml = p.status === 'planned' ? `
+        <div class="plan-progress-wrap">
+          <div class="plan-progress-label"><span>Progress</span><span>${progressPct}%</span></div>
+          <div class="plan-progress-bar-bg"><div class="plan-progress-bar-fill" style="width:${progressPct}%"></div></div>
+        </div>` : '';
+
+      const cardId = `card-body-${p.number}`;
+
       return `
         <div class="project-card ${sClass} fade-in" data-status="${p.status}" data-category="${p.type}"
              style="transition-delay:${index * 0.08}s">
@@ -1324,14 +1353,30 @@
           <div class="project-body">
             <div class="project-category">${p.category || ''}</div>
             <h2 class="project-title">${p.title}</h2>
-            ${problemHtml}
-            ${didHtml}
-            ${insightsHtml}
-            ${chartHtml}
-            <div class="project-tags">${tagsHtml}</div>
-            <div class="project-links">${buildLinks(p)}</div>
+            ${progressHtml}
+            <button class="expand-btn" onclick="toggleCard('${cardId}', this)">
+              <span class="expand-label">Read More</span> <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="card-body-collapse collapsed" id="${cardId}">
+              ${problemHtml}
+              ${didHtml}
+              ${insightsHtml}
+              ${chartHtml}
+              <div class="project-tags">${tagsHtml}</div>
+              <div class="project-links">${buildLinks(p)}</div>
+            </div>
           </div>
         </div>`;
+    }
+
+    // ── Toggle card expand/collapse ──────────────────────────────────────────────
+    function toggleCard(id, btn) {
+      const body = document.getElementById(id);
+      const isOpen = body.classList.contains('expanded');
+      body.classList.toggle('collapsed', isOpen);
+      body.classList.toggle('expanded', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+      btn.querySelector('.expand-label').textContent = isOpen ? 'Read More' : 'Show Less';
     }
 
     // ── Stats counter ──────────────────────────────────────────────────────────
@@ -1346,6 +1391,9 @@
       document.getElementById('count-done').textContent    = done;
       document.getElementById('count-active').textContent  = active;
       document.getElementById('count-planned').textContent = planned;
+      // Update live counter above filter bar
+      const counter = document.getElementById('projects-counter');
+      if (counter) counter.textContent = `${done} of ${projects.length} projects completed`;
     }
 
     // ── Filter logic ──────────────────────────────────────────────────────────

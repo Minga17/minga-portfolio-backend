@@ -211,6 +211,12 @@
     .radar-bar { height: 100%; background: linear-gradient(90deg, var(--amber), var(--gold)); border-radius: 10px; }
     .radar-pct { display: none; }
     /* ── Visitor counter ── */
+    /* Learning progress bars */
+    .learn-progress-wrap { width:100%; height:4px; background:rgba(212,130,10,0.12); border-radius:10px; margin-top:0.8rem; overflow:hidden; }
+    .learn-progress-bar { height:100%; background:linear-gradient(90deg, var(--amber), var(--gold)); border-radius:10px; transition:width 1s ease; }
+    .learn-progress-label { font-family:'Syne',sans-serif; font-size:0.62rem; font-weight:600; color:rgba(212,130,10,0.5); margin-top:0.3rem; }
+    /* CV coming soon button */
+    .cv-soon { cursor:default; opacity:0.55; }
     .visitor-line { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(245,240,232,0.2); margin-top: 0.6rem; }
     .visitor-line span { color: rgba(212,130,10,0.5); }
     @media (max-width: 640px) {
@@ -319,6 +325,7 @@
         <div class="cta-group fade-in">
           <a href="https://github.com/Minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
           <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <span class="cta-btn ghost cv-soon" title="CV coming soon"><i class="fa-solid fa-file-arrow-down"></i> CV <span style="font-size:0.6rem;opacity:0.6;margin-left:4px;">Coming Soon</span></span>
         </div>
       </div>
       <!-- Profile photo — replace profile.jpg with your real photo -->
@@ -484,6 +491,11 @@
     <div class="section-eyebrow">07 Achievements and Milestones</div>
     <h2>What I've <em>Built</em> So Far</h2>
     <p class="body-text">I am not going to list trophies I do not have. What I have are real moments that matter to me.</p>
+    <div id="github-activity" style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:600;color:rgba(245,240,232,0.4);margin-bottom:1.5rem;">
+      <i class="fa-brands fa-github" style="color:var(--amber);"></i>
+      <span id="gh-repos">—</span> public repos &nbsp;·&nbsp;
+      Last push: <span id="gh-last-push">loading...</span>
+    </div>
     <ul class="row-list">
       <li><span class="row-num">01</span>It started on a Sunday night watching a roadmap video on YouTube. That was the moment I knew Data Analytics was the path I wanted. Not a classroom, not a teacher. Just me, alone, a screen, and something that finally made sense.</li>
       <li><span class="row-num">02</span>A year ago I had never written a single line of Python. Today I have analysed over 891,000 rows of real data across 6 completed projects. I did not plan to get that far. When I started I was not sure I could finish even one project. I finished six.</li>
@@ -522,21 +534,65 @@
       </div>
     </div>
 
-    <p class="subsection-eyebrow">Currently Studying</p>
+    <p class="subsection-eyebrow">Currently Studying · Progress</p>
     <div class="reading-card">
       <div class="reading-icon">🎓</div>
-      <div>
+      <div style="flex:1;">
         <div class="reading-label">Metropolitan Community College</div>
         <div class="reading-title">Intro to Information Technology + Intro to Cloud Computing</div>
-        <div class="reading-desc">Two active classes building a wider foundation around my data work. Both are part of my path toward an Associate's Degree.</div>
+        <div class="reading-desc">Two active classes building a wider foundation around my data work.</div>
+        <div class="learn-progress-wrap">
+          <div class="learn-progress-bar" style="width:55%"></div>
+        </div>
+        <div class="learn-progress-label">55% complete · Semester in progress</div>
       </div>
     </div>
     <div class="reading-card">
       <div class="reading-icon">☁️</div>
-      <div>
+      <div style="flex:1;">
         <div class="reading-label">Self-Directed Certificate</div>
         <div class="reading-title">AWS Cloud Practitioner Essentials</div>
-        <div class="reading-desc">I enrolled in this on my own, outside of class. Cloud is where data lives at scale and I wanted to start understanding that world before it becomes a requirement.</div>
+        <div class="reading-desc">I enrolled in this on my own. Cloud is where data lives at scale.</div>
+        <div class="learn-progress-wrap">
+          <div class="learn-progress-bar" style="width:30%"></div>
+        </div>
+        <div class="learn-progress-label">30% complete · In progress</div>
+      </div>
+    </div>
+    <div class="reading-card">
+      <div class="reading-icon">🗄️</div>
+      <div style="flex:1;">
+        <div class="reading-label">Self-Study</div>
+        <div class="reading-title">Advanced SQL — Window Functions, CTEs and Subqueries</div>
+        <div class="reading-desc">Practising SQL queries daily. Building toward the more advanced query patterns used in real analytical work.</div>
+        <div class="learn-progress-wrap">
+          <div class="learn-progress-bar" style="width:45%"></div>
+        </div>
+        <div class="learn-progress-label">45% complete · Building daily</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CERTIFICATIONS ── -->
+  <div class="section-wrap fade-in">
+    <div class="section-eyebrow">Certifications and Credentials</div>
+    <h2>What I'm <em>Earning</em></h2>
+    <div class="card-grid">
+      <div class="card" style="position:relative;overflow:hidden;">
+        <div class="card-icon">☁️</div>
+        <h3>AWS Cloud Practitioner</h3>
+        <p>Amazon Web Services fundamentals. Cloud infrastructure, services and architecture. Self-enrolled outside of class because cloud is where data lives at scale.</p>
+        <div class="learn-progress-wrap" style="margin-top:1rem;">
+          <div class="learn-progress-bar" style="width:30%"></div>
+        </div>
+        <div class="learn-progress-label" style="margin-top:0.4rem;">30% complete</div>
+        <div style="position:absolute;top:1rem;right:1rem;font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(212,130,10,0.12);color:var(--amber);padding:0.25rem 0.6rem;border-radius:100px;">In Progress</div>
+      </div>
+      <div class="card" style="position:relative;overflow:hidden;opacity:0.6;">
+        <div class="card-icon">📊</div>
+        <h3>Google Data Analytics</h3>
+        <p>Planned for later this year. Covers data cleaning, analysis, visualisation and R. Complements the Python and SQL skills already built through project work.</p>
+        <div style="position:absolute;top:1rem;right:1rem;font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(122,114,101,0.2);color:var(--muted);padding:0.25rem 0.6rem;border-radius:100px;">Planned</div>
       </div>
     </div>
   </div>
@@ -634,8 +690,8 @@
     <p>I am currently studying at Metropolitan Community College and working toward my Associate's Degree. I am not yet in full job search mode but I am always open to conversations, connections and opportunities worth knowing about. If you are working in data or know someone who is, feel free to reach out. The best things often start with a simple conversation.</p>
     <div class="cta-group" style="justify-content:center;">
       <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:mingangolo@outlook.com" class="cta-btn ghost"><i class="fa-solid fa-envelope"></i> Email Me</a>
       <a href="https://github.com/Minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-github"></i> GitHub</a>
-      <a href="/project.html" class="cta-btn ghost"><i class="fa-solid fa-chart-bar"></i> View Projects</a>
     </div>
     <div style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(212,130,10,0.1);">
       <p style="font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.4rem);color:rgba(245,240,232,0.5);max-width:600px;margin:0 auto;line-height:1.6;">
@@ -792,6 +848,23 @@
 
     // ── Log page view ────────────────────────────────────────────────────────
     API.logPageView('index');
+
+    // ── GitHub activity ───────────────────────────────────────────────────────
+    fetch('https://api.github.com/users/Minga17')
+      .then(r => r.json())
+      .then(data => {
+        const el = document.getElementById('gh-repos');
+        if (el && data.public_repos !== undefined) el.textContent = data.public_repos;
+      }).catch(() => {});
+    fetch('https://api.github.com/users/Minga17/events/public')
+      .then(r => r.json())
+      .then(events => {
+        const el = document.getElementById('gh-last-push');
+        if (!el || !events || !events.length) return;
+        const last = new Date(events[0].created_at);
+        const days = Math.floor((Date.now() - last) / 86400000);
+        el.textContent = days === 0 ? 'today' : days === 1 ? 'yesterday' : days + ' days ago';
+      }).catch(() => { const el = document.getElementById('gh-last-push'); if(el) el.textContent = 'recently'; });
 
   </script>
 </body>
