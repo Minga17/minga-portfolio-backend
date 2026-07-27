@@ -60,12 +60,16 @@ def android192():
 @app.route('/android-chrome-512x512.png')
 def android512():
     return send_from_directory('.', 'android-chrome-512x512.png', mimetype='image/png')
+
+@app.route('/media.html')
 def media():
     return send_from_directory('.', 'media.html')
 
 @app.route('/media')
 def media_no_ext():
     return send_from_directory('.', 'media.html')
+
+@app.route('/static/js/api.js')
 def serve_api_js():
     return send_from_directory('static/js', 'api.js')
 
