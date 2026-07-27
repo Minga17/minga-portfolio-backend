@@ -33,7 +33,33 @@ def project_html():
 def projects_html():
     return send_from_directory('.', 'project.html')
 
-@app.route('/media.html')
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('.', 'favicon.ico', mimetype='image/x-icon')
+
+@app.route('/favicon-32x32.png')
+def favicon32():
+    return send_from_directory('.', 'favicon-32x32.png', mimetype='image/png')
+
+@app.route('/favicon-16x16.png')
+def favicon16():
+    return send_from_directory('.', 'favicon-16x16.png', mimetype='image/png')
+
+@app.route('/apple-touch-icon.png')
+def apple_touch():
+    return send_from_directory('.', 'apple-touch-icon.png', mimetype='image/png')
+
+@app.route('/site.webmanifest')
+def webmanifest():
+    return send_from_directory('.', 'site.webmanifest', mimetype='application/manifest+json')
+
+@app.route('/android-chrome-192x192.png')
+def android192():
+    return send_from_directory('.', 'android-chrome-192x192.png', mimetype='image/png')
+
+@app.route('/android-chrome-512x512.png')
+def android512():
+    return send_from_directory('.', 'android-chrome-512x512.png', mimetype='image/png')
 def media():
     return send_from_directory('.', 'media.html')
 
