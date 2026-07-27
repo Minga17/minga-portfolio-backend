@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emmanuel Minga — Work Files</title>
+  <meta name="description" content="Charts, notebooks, dashboards and datasets from Emmanuel Minga's data analysis projects. All work publicly available on GitHub and Kaggle." />
+  <meta property="og:title" content="Emmanuel Minga — Work Files" />
+  <meta property="og:description" content="Charts, notebooks, dashboards and datasets from 6 completed data projects." />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="/static/js/api.js"></script>
+  <style>
+    :root {
+      --ink:    #0f0e0d;
+      --cream:  #f5f0e8;
+      --amber:  #d4820a;
+      --gold:   #f0b429;
+      --sage:   #4a6c5e;
+      --muted:  #7a7265;
+      --border: rgba(212,130,10,0.25);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Crimson Pro', Georgia, serif; background: var(--ink); color: var(--cream); font-size: 1.125rem; line-height: 1.75; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a1814; }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 9px; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 999; }
+
+    /* Scroll bar */
+    #scroll-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--amber), var(--gold)); width: 0%; z-index: 9999; transition: width 0.1s linear; }
+    #back-top { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; border-radius: 50%; background: var(--amber); color: var(--ink); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 200; box-shadow: 0 4px 20px rgba(212,130,10,0.35); }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-3px); background: var(--gold); }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(15,14,13,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--cream); letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--amber); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+    .nav-social { display: flex; align-items: center; gap: 1.2rem; margin-left: 1rem; padding-left: 1.5rem; border-left: 1px solid rgba(212,130,10,0.2); }
+    .nav-social a { color: rgba(245,240,232,0.4); font-size: 1rem; text-decoration: none; transition: color 0.2s, transform 0.2s; display: flex; align-items: center; }
+    .nav-social a:hover { color: var(--amber); transform: translateY(-2px); }
+
+    /* Hero */
+    .page-hero { padding: 10rem 6rem 4rem; max-width: 1300px; margin: 0 auto; }
+    .hero-eyebrow { font-family: 'Syne', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.7rem; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--amber); }
+    .page-hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.05; color: var(--cream); letter-spacing: -0.025em; margin-bottom: 1.2rem; }
+    .page-hero h1 em { color: var(--gold); font-style: italic; }
+    .page-hero p { font-size: 1.1rem; color: rgba(245,240,232,0.5); max-width: 560px; line-height: 1.85; }
+
+    /* Counter */
+    .media-counter { max-width: 1300px; margin: 0 auto; padding: 0 6rem 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .counter-text { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(245,240,232,0.35); }
+    .counter-text span { color: var(--amber); }
+
+    /* Filter bar */
+    .filter-bar { max-width: 1300px; margin: 0 auto; padding: 0 6rem 2.5rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .filter-btn { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.2rem; border-radius: 100px; border: 1px solid rgba(212,130,10,0.25); color: rgba(245,240,232,0.45); background: transparent; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--amber); color: var(--amber); background: rgba(212,130,10,0.08); }
+
+    /* Media grid */
+    .media-container { max-width: 1300px; margin: 0 auto; padding: 0 6rem 6rem; }
+    .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+
+    /* Media card */
+    .media-card { border: 1px solid rgba(212,130,10,0.14); border-radius: 12px; background: rgba(255,255,255,0.025); overflow: hidden; transition: border-color 0.25s, background 0.25s, transform 0.25s; position: relative; }
+    .media-card:hover { border-color: rgba(212,130,10,0.4); background: rgba(255,255,255,0.04); transform: translateY(-3px); }
+
+    /* Card image */
+    .card-img { width: 100%; height: 180px; object-fit: cover; display: block; background: rgba(255,255,255,0.03); }
+    .card-placeholder { width: 100%; height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; background: rgba(212,130,10,0.04); border-bottom: 1px solid rgba(212,130,10,0.1); }
+    .card-placeholder-icon { font-size: 2.8rem; opacity: 0.6; }
+    .card-placeholder-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.2); }
+
+    /* Card body */
+    .card-body { padding: 1.2rem 1.4rem 1.4rem; }
+    .card-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+    .type-badge { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; }
+    .type-chart     { background: rgba(212,130,10,0.15); color: var(--amber); }
+    .type-notebook  { background: rgba(59,109,17,0.15); color: #6bbf9e; }
+    .type-dashboard { background: rgba(24,95,165,0.15); color: #7ab3e0; }
+    .type-dataset   { background: rgba(122,74,165,0.15); color: #b07ae0; }
+    .project-badge { font-family: 'Syne', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 100px; background: rgba(255,255,255,0.05); color: rgba(245,240,232,0.3); }
+
+    .card-title { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .card-desc { font-size: 0.85rem; color: rgba(245,240,232,0.4); line-height: 1.6; margin-bottom: 1rem; }
+    .card-link { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); text-decoration: none; transition: gap 0.2s, color 0.2s; }
+    .card-link:hover { gap: 0.8rem; color: var(--gold); }
+    .card-link.secondary { color: rgba(245,240,232,0.3); }
+    .card-link.secondary:hover { color: rgba(245,240,232,0.6); }
+
+    /* Fade in */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { background: #111009; border-top: 1px solid rgba(212,130,10,0.12); padding: 4rem 6rem 0; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; }
+    .footer-col-title { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber); margin-bottom: 1.2rem; }
+    .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--cream); text-decoration: none; display: block; margin-bottom: 0.5rem; }
+    .footer-logo span { color: var(--amber); }
+    .footer-desc { font-size: 0.88rem; color: rgba(245,240,232,0.35); line-height: 1.75; margin-bottom: 1rem; }
+    .footer-tagline-new { font-family: 'Syne', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(212,130,10,0.5); }
+    .footer-links-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-links-list a { font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 500; color: rgba(245,240,232,0.4); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links-list a:hover { color: var(--amber); }
+    .footer-connect-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .footer-connect-list a { display: flex; align-items: center; gap: 0.75rem; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 500; color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-connect-list a:hover { color: var(--amber); }
+    .footer-connect-list i { width: 16px; text-align: center; font-size: 0.9rem; color: rgba(212,130,10,0.5); }
+    .footer-tool-item { display: flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 500; color: rgba(245,240,232,0.4); }
+    .footer-tool-item i { width: 16px; text-align: center; font-size: 0.85rem; color: rgba(212,130,10,0.5); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      nav, .page-hero, .filter-bar, .media-container, .media-counter { padding-left: 3rem; padding-right: 3rem; }
+      footer { padding: 3rem 3rem 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.65rem; }
+      .nav-social { display: none; }
+      .page-hero, .filter-bar, .media-container, .media-counter { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page-hero { padding-top: 8rem; }
+      .media-grid { grid-template-columns: 1fr; }
+      footer { padding: 2.5rem 1.5rem 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-bar"></div>
+  <button id="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <nav>
+    <a href="/" class="nav-logo">Emmanuel <span>Minga</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Profile</a></li>
+      <li><a href="/project.html">Projects</a></li>
+      <li><a href="/media.html" class="active">Work Files</a></li>
+    </ul>
+    <div class="nav-social">
+      <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/minga17" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://x.com/mingangolo17s?s=11" target="_blank" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="hero-eyebrow fade-in">Work Files</div>
+    <h1 class="fade-in">Charts, Notebooks<br>and <em>Dashboards.</em></h1>
+    <p class="fade-in">Every chart, notebook, dashboard and dataset from my completed projects. All publicly available. Nothing downloads from this page, use the links to access the files on GitHub, Kaggle or Power BI.</p>
+  </div>
+
+  <!-- COUNTER -->
+  <div class="media-counter fade-in">
+    <div class="counter-text">No downloads here · Links go to GitHub, Kaggle or Power BI</div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar fade-in">
+    <button class="filter-btn active" data-filter="all">All Files</button>
+    <button class="filter-btn" data-filter="chart">Charts</button>
+    <button class="filter-btn" data-filter="notebook">Notebooks</button>
+    <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+    <button class="filter-btn" data-filter="dataset">Datasets</button>
+  </div>
+
+  <!-- MEDIA GRID -->
+  <div class="media-container">
+    <div class="media-grid" id="media-grid">
+
+      <!-- ══════════════════════════════════════════
+           CHARTS
+      ══════════════════════════════════════════ -->
+
+      <!-- Retail Sales Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart1_monthly_trend.png" alt="Monthly Sales Trend" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Monthly Sales Trend</div>
+          <div class="card-desc">Revenue trend across all months showing the November and December seasonal peak.</div>
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart2_top_products.png" alt="Top Products" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Top Products by Revenue</div>
+          <div class="card-desc">Horizontal bar chart ranking the top 10 products by total revenue generated.</div>
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart3_category_profit.png" alt="Category Profit" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Category Profit Comparison</div>
+          <div class="card-desc">Shows which product categories are profitable and which three are running at a loss.</div>
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart4_profit_scatter.png" alt="Profit Scatter" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Profit vs Sales Scatter</div>
+          <div class="card-desc">Scatter plot showing high-volume products with low profit margins — candidates for price review.</div>
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Premier League Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart1_home_advantage.png" alt="Home Advantage" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Premier League</span></div>
+          <div class="card-title">Home vs Away Win Rate</div>
+          <div class="card-desc">Proves home advantage is real — home teams win 45.8% of matches vs 28.4% for away teams.</div>
+          <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- COVID Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart1_global_trend.png" alt="Global COVID Trend" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">COVID-19</span></div>
+          <div class="card-title">Global Daily Trend</div>
+          <div class="card-desc">Line chart with 7-day rolling average showing global confirmed case waves from 2020 to 2021.</div>
+          <a href="https://github.com/Minga17/covid19-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Netflix Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart2_content_per_year.png" alt="Content Per Year" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Netflix</span></div>
+          <div class="card-title">Content Added Per Year</div>
+          <div class="card-desc">Netflix growth from 2010 to 2021 — peak at 2,153 titles added in 2019, drop in 2020 from COVID.</div>
+          <a href="https://github.com/Minga17/netflix-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- SQL Pipeline Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart3_monthly_revenue.png" alt="Monthly Revenue" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">SQL Pipeline</span></div>
+          <div class="card-title">Monthly Revenue Trend</div>
+          <div class="card-desc">Revenue trend across 2010 to 2011 — November 2011 peak of £1.5M driven by Black Friday.</div>
+          <a href="https://github.com/Minga17/sql-python-pipeline" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           NOTEBOOKS
+      ══════════════════════════════════════════ -->
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Retail Sales Analysis</div>
+          <div class="card-desc">Full EDA notebook. Data cleaning, groupby analysis, 4 Matplotlib charts. 9,994 rows of transactional data.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/retailsale" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">Premier League</span></div>
+          <div class="card-title">Premier League Analysis</div>
+          <div class="card-desc">30 seasons of match data. Home advantage analysis, top team rankings, goals per season trend. 11,113 matches.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/notebook3de1e62af3" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">COVID-19</span></div>
+          <div class="card-title">COVID-19 Global Trends</div>
+          <div class="card-desc">306,429 rows. 228 countries. Rolling averages, death rate analysis, monthly case trends.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/covid19-analysis-ipynb" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/covid19-analysis" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">Netflix</span></div>
+          <div class="card-title">Netflix Content Strategy</div>
+          <div class="card-desc">7,787 titles analysed. Split-explode-strip pattern for genres and countries. Content growth from 2010 to 2021.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/netflix-analysis-ipynb" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/netflix-analysis" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">SQL Pipeline</span></div>
+          <div class="card-title">SQL + Python Data Pipeline</div>
+          <div class="card-desc">530,104 rows loaded into SQLite. 6 SQL queries. Results visualised with Matplotlib. Full pipeline demonstrated.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/notebook095e3b4cf3" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/sql-python-pipeline" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">9 Notebooks</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">Soccer Dashboard</span></div>
+          <div class="card-title">Soccer Intelligence — 9 Notebooks</div>
+          <div class="card-desc">Full project suite. EDA, SQL queries, ML models, underrated players, player comparison, xG model and team form tracker.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/soccer" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card-link secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           DASHBOARDS
+      ══════════════════════════════════════════ -->
+
+      <div class="media-card fade-in" data-type="dashboard">
+        <img src="/images/dashboard.png" alt="Soccer Dashboard" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📈</div><div class="card-placeholder-label">Power BI Dashboard</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dashboard">Dashboard</span><span class="project-badge">Soccer Intelligence</span></div>
+          <div class="card-title">Soccer Intelligence — Power BI</div>
+          <div class="card-desc">Live interactive dashboard. 25,979 matches, 11 leagues, player ratings, ML model results. Opens in Power BI.</div>
+          <a href="https://app.powerbi.com/links/wNim_IbQmj?ctid=6f344524-0aa9-4416-89d6-7f1bb85a1364&pbi_source=linkShare" target="_blank" class="card-link"><i class="fa-solid fa-chart-pie"></i> Open Dashboard <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="dashboard">
+        <div class="card-placeholder"><div class="card-placeholder-icon">🌍</div><div class="card-placeholder-label">In Progress</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dashboard">Dashboard</span><span class="project-badge">Africa Dashboard</span></div>
+          <div class="card-title">Africa Rising — Power BI + Tableau</div>
+          <div class="card-desc">In progress. 53 African countries, 30 years of World Bank data. Power BI executive dashboard and Tableau story charts.</div>
+          <span class="card-link secondary" style="cursor:default;"><i class="fa-solid fa-clock"></i> Coming Soon</span>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           DATASETS
+      ══════════════════════════════════════════ -->
+
+      <div class="media-card fade-in" data-type="dataset">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">Retail Sales</span></div>
+          <div class="card-title">Sample Superstore — 9,994 rows</div>
+          <div class="card-desc">4 years of US retail transactions. Columns: Order ID, Product, Category, Sales, Profit, Region, Date.</div>
+          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> Access on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="dataset">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">SQL Pipeline</span></div>
+          <div class="card-title">E-Commerce Transactions — 530,104 rows</div>
+          <div class="card-desc">UK-based online retail. Columns: Invoice, Product, Quantity, Price, Customer, Country, Date.</div>
+          <a href="https://github.com/Minga17/sql-python-pipeline" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> Access on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="dataset">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">COVID-19</span></div>
+          <div class="card-title">COVID-19 Global — 306,429 rows</div>
+          <div class="card-desc">Daily confirmed cases, deaths and recoveries for 228 countries from Jan 2020 to Dec 2021.</div>
+          <a href="https://github.com/Minga17/covid19-analysis" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> Access on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="dataset">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">Africa Dashboard</span></div>
+          <div class="card-title">Africa Development — 8,201 rows</div>
+          <div class="card-desc">53 African countries, 6 indicators, 1990 to 2018. GDP, life expectancy, electricity, internet, school enrollment.</div>
+          <a href="https://github.com/Minga17/africa-development-dashboard" target="_blank" class="card-link"><i class="fa-brands fa-github"></i> Access on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-logo">Emmanuel <span>Minga</span></a>
+        <p class="footer-desc">Junior Data Analyst based in Omaha, NE. Analysing data, uncovering patterns, and building dashboards that turn complex information into decisions that actually matter.</p>
+        <div class="footer-tagline-new">Analyst today. Engineer tomorrow. Building solutions that turn data into decisions.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links-list">
+          <li><a href="/">Profile</a></li>
+          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/media.html">Work Files</a></li>
+          <li><a href="/#skills">Skills</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-connect-list">
+          <li><a href="https://github.com/Minga17" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://www.kaggle.com/mingangolo" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a></li>
+          <li><a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/minga17" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fa-solid fa-location-dot"></i> Omaha, NE, USA</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Tools I Use</div>
+        <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0.65rem 1rem;margin-top:0.5rem;">
+          <li><span class="footer-tool-item"><i class="fa-brands fa-python"></i> Python</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-database"></i> SQL</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-chart-line"></i> Pandas</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-chart-pie"></i> Power BI</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-chart-bar"></i> Matplotlib</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-chart-area"></i> Seaborn</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-book"></i> Kaggle</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-table"></i> Tableau</span></li>
+          <li><span class="footer-tool-item"><i class="fa-solid fa-file-excel"></i> Excel</span></li>
+          <li><span class="footer-tool-item"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll bar
+    const scrollBar = document.getElementById('scroll-bar');
+    window.addEventListener('scroll', () => {
+      scrollBar.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    });
+
+    // Back to top
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 400));
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Filter
+    let activeFilter = 'all';
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        let visible = 0;
+        document.querySelectorAll('.media-card').forEach(card => {
+          const show = activeFilter === 'all' || card.dataset.type === activeFilter;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        document.getElementById('total-count').textContent = visible;
+      });
+    });
+
+    // Fade in
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.03) + 's';
+      observer.observe(el);
+    });
+    setTimeout(() => document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible')), 300);
+
+    // Log page view
+    API.logPageView('media');
+  </script>
+</body>
+</html>

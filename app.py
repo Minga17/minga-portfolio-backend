@@ -33,7 +33,13 @@ def project_html():
 def projects_html():
     return send_from_directory('.', 'project.html')
 
-@app.route('/static/js/api.js')
+@app.route('/media.html')
+def media():
+    return send_from_directory('.', 'media.html')
+
+@app.route('/media')
+def media_no_ext():
+    return send_from_directory('.', 'media.html')
 def serve_api_js():
     return send_from_directory('static/js', 'api.js')
 
