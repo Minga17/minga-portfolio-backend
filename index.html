@@ -7,7 +7,7 @@
 
   <!-- ── SEO + Open Graph ── -->
   <meta name="description" content="Emmanuel Minga, Junior Data Analyst based in Omaha, NE. Python, SQL, Power BI, Pandas. 6 completed data projects. Open to internships." />
-  <meta name="keywords" content="data analyst, Python, SQL, Pandas, Matplotlib, Power BI, portfolio, Minga Ngolo" />
+  <meta name="keywords" content="Emmanuel Minga, data analyst, Python, SQL, Pandas, Matplotlib, Power BI, portfolio, Omaha Nebraska" />
   <meta name="author" content="Emmanuel Minga" />
   <meta property="og:title" content="Emmanuel Minga, Junior Data Analyst Portfolio" />
   <meta property="og:description" content="Junior Data Analyst in Omaha, NE. 6 data projects, 891K rows analysed. Python, SQL, Power BI." />
@@ -25,7 +25,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <script src="/static/js/api.js"></script>
   <style>
     :root {
@@ -195,8 +194,6 @@
     #back-top.visible { opacity: 1; pointer-events: auto; }
     #back-top:hover { transform: translateY(-3px); background: var(--gold); }
     /* ── Open to work banner ── */
-    .otw-banner { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Syne', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(74,108,94,0.15); border: 1px solid rgba(74,108,94,0.4); color: #6bbf9e; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
-    .otw-dot { width: 7px; height: 7px; border-radius: 50%; background: #6bbf9e; animation: pulse 1.8s ease-in-out infinite; flex-shrink: 0; }
     /* ── Typewriter ── */
     .typewriter-cursor { display: inline-block; width: 2px; height: 1em; background: var(--amber); margin-left: 2px; vertical-align: text-bottom; animation: blink 0.9s step-end infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
@@ -215,8 +212,6 @@
     .learn-progress-wrap { width:100%; height:4px; background:rgba(212,130,10,0.12); border-radius:10px; margin-top:0.8rem; overflow:hidden; }
     .learn-progress-bar { height:100%; background:linear-gradient(90deg, var(--amber), var(--gold)); border-radius:10px; transition:width 1s ease; }
     .learn-progress-label { font-family:'Syne',sans-serif; font-size:0.62rem; font-weight:600; color:rgba(212,130,10,0.5); margin-top:0.3rem; }
-    /* CV coming soon button */
-    .cv-soon { cursor:default; opacity:0.55; }
     .visitor-line { font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(245,240,232,0.2); margin-top: 0.6rem; }
     .visitor-line span { color: rgba(212,130,10,0.5); }
     @media (max-width: 640px) {
@@ -293,7 +288,7 @@
       <li><a href="#about" class="active">Profile</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#vision">Vision</a></li>
-      <li><a href="/project.html">Projects</a></li>
+      <li><a href="/project.html" class="active">All Projects</a></li>
     </ul>
     <div class="nav-social">
       <a href="https://github.com/Minga17" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -306,11 +301,7 @@
   <div class="page-hero" id="about">
     <div class="hero-inner">
       <div>
-        <div class="otw-banner fade-in">
-          <span class="otw-dot"></span>
-          Available · Internships &amp; Junior Analyst Roles
-        </div>
-        <span class="badge badge-pulse fade-in">
+<span class="badge badge-pulse fade-in">
           <span style="width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0;"></span>
           Currently Learning · Python &amp; SQL
         </span>
@@ -325,7 +316,6 @@
         <div class="cta-group fade-in">
           <a href="https://github.com/Minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-github"></i> GitHub</a>
           <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn ghost"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <span class="cta-btn ghost cv-soon" title="CV coming soon"><i class="fa-solid fa-file-arrow-down"></i> CV <span style="font-size:0.6rem;opacity:0.6;margin-left:4px;">Coming Soon</span></span>
         </div>
       </div>
       <!-- Profile photo — replace profile.jpg with your real photo -->
@@ -337,35 +327,34 @@
     </div>
   </div>
 
-  <!-- ── 01 WHO I AM ── -->
+  <!-- ── ABOUT ── -->
   <div class="section-wrap fade-in">
     <div class="watermark">WHO</div>
-    <div class="section-eyebrow">01 Introduction</div>
-    <h2>Who I <em>Am</em></h2>
-    <p class="large-text">I was born in the Democratic Republic of Congo and moved to Zimbabwe when I was nine years old. Zimbabwe is where I spent the biggest part of my life. It is where I grew up, where I made friends, where I learned how to work hard, and where I became the person I am today.</p>
-    <p class="body-text">In my third year of high school, something clicked. I realised I wanted to build a career in IT. The problem was I did not know which part. There are so many directions you can go in technology and at that age, none of them had a clear sign pointing at me saying this is the one.</p>
-    <p class="body-text">When my family moved to the United States, I started college. I was showing up, taking classes, doing the work. But if I am honest, I was going through the motions. Nothing was pulling me in strongly enough. I was in the building but I had not found my room yet.</p>
-    <p class="body-text">Then one conversation changed everything. I was talking to my boss one day about where I wanted to go with my career. He noticed I was good with numbers and that I had a strong ability to learn quickly. He suggested IT development. I appreciated it. But when I sat with it, something still did not feel completely right.</p>
-    <p class="body-text">So I went home and did my own research. I went through different areas of IT one by one until I found two that stopped me in my tracks. Data Analytics and Data Engineering. Both of them made sense to me in a way nothing else had before. They combined the things I was naturally drawn to, working with numbers, finding patterns, solving problems, and building something real from raw information.</p>
-    <p class="body-text">My plan from that moment has been clear. Short term, build strong foundations in Data Analytics. Long term, become a Data Engineer. Those are not random goals. They are connected. Data Analytics teaches you how to understand data. Data Engineering teaches you how to build the systems that move it. You need one to truly master the other.</p>
-    <p class="body-text">Right now I am fully focused on that first goal. Every project I build, every dataset I clean, every insight I find is a step toward it.</p>
+    <div class="section-eyebrow">About</div>
+    <h2>Emmanuel <em>Minga</em></h2>
+    <p class="large-text">Junior Data Analyst based in Omaha, NE. Born in the DRC, raised in Zimbabwe, now building a data career in the United States. I analyse real datasets, find the patterns inside them, and turn those findings into something useful.</p>
+    <p class="body-text">I came to data analytics through my own research — watching roadmaps, exploring different IT paths, until Data Analytics and Data Engineering stopped me cold. They fit how I naturally think. Short term goal: become a strong data analyst. Long term goal: Data Engineer. Everything I build right now is part of that plan.</p>
+    <p class="body-text">Outside of data I play soccer, make music in a home studio I am still setting up, game, and watch cartoons without apology. Those things are not separate from how I work. They are part of it.</p>
+    <div style="display:flex;gap:2rem;margin-top:2rem;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.4rem;">Education</div>
+        <div style="font-size:0.95rem;color:rgba(245,240,232,0.55);">Metropolitan Community College</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.3);">Associate's Degree in progress</div>
+      </div>
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.4rem;">Location</div>
+        <div style="font-size:0.95rem;color:rgba(245,240,232,0.55);">Omaha, NE, USA</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.3);">🇨🇩 DRC · 🇿🇼 Zimbabwe · 🇺🇸 USA</div>
+      </div>
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.4rem;">Status</div>
+        <div style="font-size:0.95rem;color:#6bbf9e;">Available for internships</div>
+        <div style="font-size:0.85rem;color:rgba(245,240,232,0.3);">Junior analyst roles</div>
+      </div>
+    </div>
   </div>
 
-  <!-- ── 02 WHERE I'M FROM ── -->
-  <div class="section-wrap fade-in">
-    <div class="watermark">ROOTS</div>
-    <div class="section-eyebrow">02 Personal Background</div>
-    <h2>Where I'm <em>From</em></h2>
-    <p class="large-text">🇨🇩 The Democratic Republic of Congo gave me my origin. 🇿🇼 Zimbabwe gave me my foundation. 🇺🇸 The United States is giving me my future.</p>
-    <p class="body-text">Moving to Zimbabwe at nine years old was not easy. But looking back, it was the place that shaped me the most. Zimbabwe taught me things no classroom ever could.</p>
-    <p class="body-text">It taught me to take from your environment and give back to it. To be part of something bigger than yourself. To look around at your community and ask what you can contribute, not just what you can take.</p>
-    <p class="body-text">It taught me to appreciate what I have. When you grow up watching people around you survive on very little, you stop taking things for granted. You learn to cherish the small things. You learn that enough is actually a lot.</p>
-    <p class="body-text">Zimbabwe is also where I fell in love with sport and music. Football taught me discipline, teamwork and how to read a situation fast. Music taught me patience and how to find structure inside something that feels like chaos. Both of those things show up in how I approach data today.</p>
-    <p class="body-text">And Zimbabwe taught me how to survive hard times. There were seasons where school fees were a real struggle. Seasons where motivation was nowhere to be found. Seasons where keeping going felt like the hardest thing in the world. I kept going anyway. That is not something you learn from a book. That is something life teaches you by putting you through it.</p>
-    <p class="body-text">Every environment I have lived in has left something in me. The DRC gave me roots. Zimbabwe gave me strength. America is giving me a canvas to build on.</p>
-  </div>
-
-  <!-- ── 03 WHAT DRIVES ME ── -->
+  <!-- ── 04 GOALS ── -->
   <div class="section-wrap fade-in">
     <div class="section-eyebrow">03 Interests and Passions</div>
     <h2>What <em>Drives</em> Me</h2>
@@ -385,69 +374,11 @@
     </div>
   </div>
 
-    <!-- ── 04 GOALS ── -->
-  <div class="section-wrap fade-in">
-    <div class="watermark">GOALS</div>
-    <div class="section-eyebrow">04 Goals and Ambitions</div>
-    <h2>What I'm <em>Chasing</em></h2>
-    <p class="body-text">Short term. Data Analytics. Long term. Data Engineer. Everything I do right now is part of that plan.</p>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon">🎯</div>
-        <h3>Right Now (2026)</h3>
-        <p>My focus this year is simple. Keep my grades as high as possible, finish the projects I have started, and land my first real opportunity in data. The foundation is built. Now it is about results.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📈</div>
-        <h3>In 3 to 5 Years</h3>
-        <p>This is where I see my first goal completed. I want to be working in a strong data analyst role at a company where my work actually matters. No chaos, no confusion. Just clear work, good results, and a normal day I am proud of.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🚀</div>
-        <h3>The Big Picture (10 Years)</h3>
-        <p>Ten years from now I want to be a Data Engineer. That is the long term goal and everything I am doing right now is pointing toward it. Data Analytics first, Data Engineering second. One step at a time, but always moving forward.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── 05 SKILLS ── -->
+    <!-- ── 05 SKILLS ── -->
   <div class="section-wrap fade-in" id="skills">
     <div class="section-eyebrow">05 Skills and Strengths</div>
     <h2>What I <em>Bring</em></h2>
-    <p class="body-text">Some skills come from classrooms. Mine come from data, discipline, and three different countries.</p>
-
-    <div class="radar-wrap">
-      <div class="radar-canvas-wrap">
-        <canvas id="skillsRadar"></canvas>
-      </div>
-      <div class="radar-legend">
-        <div class="radar-item">
-          <span class="radar-label">Python</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:70%"></div></div>
-        </div>
-        <div class="radar-item">
-          <span class="radar-label">SQL</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:55%"></div></div>
-        </div>
-        <div class="radar-item">
-          <span class="radar-label">Data Visualization</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:68%"></div></div>
-        </div>
-        <div class="radar-item">
-          <span class="radar-label">Statistics</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:55%"></div></div>
-        </div>
-        <div class="radar-item">
-          <span class="radar-label">Excel</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:72%"></div></div>
-        </div>
-        <div class="radar-item">
-          <span class="radar-label">Communication</span>
-          <div class="radar-bar-wrap"><div class="radar-bar" style="width:85%"></div></div>
-        </div>
-      </div>
-    </div>
-
+    <p class="body-text">Tools I have used in real completed projects — not tutorials, not courses, actual published work.</p>
     <p class="subsection-eyebrow">Data Tools</p>
     <div class="tools-strip">
       <span class="tool-pill"><i class="fa-brands fa-python"></i> Python</span>
@@ -461,32 +392,10 @@
       <span class="tool-pill"><i class="fa-solid fa-chart-pie"></i> Power BI</span>
       <span class="tool-pill"><i class="fa-solid fa-table"></i> Tableau</span>
     </div>
-    <p class="subsection-eyebrow" style="margin-top:1.5rem;">Web Background</p>
-    <div class="tools-strip" style="opacity:0.5;">
-      <span class="tool-pill"><i class="fa-brands fa-react"></i> React</span>
-      <span class="tool-pill"><i class="fa-brands fa-html5"></i> HTML / CSS</span>
-      <span class="tool-pill"><i class="fa-solid fa-globe"></i> Netlify</span>
-    </div>
+
   </div>
 
-  <!-- ── 06 VALUES ── -->
-  <div class="section-wrap fade-in">
-    <div class="watermark">VALUES</div>
-    <div class="section-eyebrow">06 Values and Mindset</div>
-    <h2>What I <em>Stand On</em></h2>
-    <p class="body-text">I do not believe in waiting for big moments to feel motivated. I believe in small ones.</p>
-    <p class="body-text">A simple action repeated every day is what builds consistency. And consistency is where everything else comes from. Discipline. A good mindset. Confidence. Good health. Growth. None of those things arrive all at once. They are built quietly, one small step at a time.</p>
-    <p class="body-text">That is how I approach my work. I do not need to feel ready. I just need to show up and do the next small thing. The rest takes care of itself over time.</p>
-    <div class="tag-group">
-      <span class="tag">Consistency</span>
-      <span class="tag">Discipline</span>
-      <span class="tag">Growth mindset</span>
-      <span class="tag">Confidence</span>
-      <span class="tag">Good health</span>
-    </div>
-  </div>
 
-  <!-- ── 07 ACHIEVEMENTS ── -->
   <div class="section-wrap fade-in">
     <div class="section-eyebrow">07 Achievements and Milestones</div>
     <h2>What I've <em>Built</em> So Far</h2>
@@ -544,7 +453,7 @@
         <div class="learn-progress-wrap">
           <div class="learn-progress-bar" style="width:55%"></div>
         </div>
-        <div class="learn-progress-label">55% complete · Semester in progress</div>
+        <div class="learn-progress-label">Semester in progress</div>
       </div>
     </div>
     <div class="reading-card">
@@ -556,7 +465,7 @@
         <div class="learn-progress-wrap">
           <div class="learn-progress-bar" style="width:30%"></div>
         </div>
-        <div class="learn-progress-label">30% complete · In progress</div>
+        <div class="learn-progress-label">In progress</div>
       </div>
     </div>
     <div class="reading-card">
@@ -568,118 +477,73 @@
         <div class="learn-progress-wrap">
           <div class="learn-progress-bar" style="width:45%"></div>
         </div>
-        <div class="learn-progress-label">45% complete · Building daily</div>
+        <div class="learn-progress-label">Building daily</div>
       </div>
     </div>
-  </div>
-
-  <!-- ── CERTIFICATIONS ── -->
-  <div class="section-wrap fade-in">
-    <div class="section-eyebrow">Certifications and Credentials</div>
-    <h2>What I'm <em>Earning</em></h2>
-    <div class="card-grid">
-      <div class="card" style="position:relative;overflow:hidden;">
-        <div class="card-icon">☁️</div>
-        <h3>AWS Cloud Practitioner</h3>
-        <p>Amazon Web Services fundamentals. Cloud infrastructure, services and architecture. Self-enrolled outside of class because cloud is where data lives at scale.</p>
-        <div class="learn-progress-wrap" style="margin-top:1rem;">
-          <div class="learn-progress-bar" style="width:30%"></div>
-        </div>
-        <div class="learn-progress-label" style="margin-top:0.4rem;">30% complete</div>
-        <div style="position:absolute;top:1rem;right:1rem;font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(212,130,10,0.12);color:var(--amber);padding:0.25rem 0.6rem;border-radius:100px;">In Progress</div>
-      </div>
-      <div class="card" style="position:relative;overflow:hidden;opacity:0.6;">
-        <div class="card-icon">📊</div>
-        <h3>Google Data Analytics</h3>
-        <p>Planned for later this year. Covers data cleaning, analysis, visualisation and R. Complements the Python and SQL skills already built through project work.</p>
-        <div style="position:absolute;top:1rem;right:1rem;font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(122,114,101,0.2);color:var(--muted);padding:0.25rem 0.6rem;border-radius:100px;">Planned</div>
+    <div class="reading-card" style="margin-top:1.5rem;">
+      <div class="reading-icon">☁️</div>
+      <div style="flex:1;">
+        <div class="reading-label">Self-Directed Certificate</div>
+        <div class="reading-title">AWS Cloud Practitioner Essentials</div>
+        <div class="reading-desc">Enrolled on my own outside of class. Cloud is where data lives at scale and I wanted to start understanding that world before it becomes a requirement.</div>
+        <div class="learn-progress-wrap"><div class="learn-progress-bar" style="width:30%"></div></div>
+        <div class="learn-progress-label">In progress</div>
       </div>
     </div>
-  </div>
-
-  <!-- ── FUN FACTS ── -->
-  <div class="section-wrap fade-in">
-    <div class="section-eyebrow">A Few Things You Should Know</div>
-    <h2>Beyond the <em>Data</em></h2>
-    <ul class="row-list">
-      <li><span class="row-num">✦</span><strong>Two modes, one person.</strong> I can switch from debugging Python to producing music without feeling like I am changing who I am. Logic and creativity are not opposites for me. They are just two ways of solving the same kind of problem.</li>
-      <li><span class="row-num">✦</span><strong>I build tools for myself first.</strong> Before I built anything for other people I built a personal web app to track my own study sessions, skills and progress. I did not just make a plan. I built a system to help myself follow through. That is how I think about most problems.</li>
-      <li><span class="row-num">✦</span><strong>Success means more than a job title.</strong> One of the reasons I work as hard as I do is so that someone coming from where I came from can look at me and know it is possible. I want to be visible in tech. Not for recognition but because representation changes what people believe they can do.</li>
-    </ul>
   </div>
 
   <!-- ── FEATURED PROJECTS ── -->
   <div class="section-wrap fade-in" id="featured">
     <div class="section-eyebrow">Featured Work</div>
     <h2>Projects That <em>Prove It</em></h2>
-    <p class="body-text">Not descriptions of what I can do. Actual work I built and published.</p>
-    <div class="card-grid" style="margin-top:2rem;">
-      <div class="card" style="border-left:none;padding:2rem;">
-        <div class="card-icon">📊</div>
-        <h3>Retail Sales Analysis</h3>
-        <p>Cleaned 9,994 rows. Found $22k in hidden losses across 3 sub-categories. Built 4 Matplotlib charts. Published on GitHub + Kaggle.</p>
-        <div class="tag-group" style="margin-top:1rem;">
-          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span>
-        </div>
-        <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;">
-          <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="https://www.kaggle.com/code/mingangolo/retailsale" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.4);text-decoration:none;"><i class="fa-solid fa-database"></i> Kaggle</a>
-        </div>
-      </div>
-      <div class="card" style="border-left:none;padding:2rem;">
-        <div class="card-icon">⚽</div>
-        <h3>Soccer Intelligence Dashboard</h3>
-        <p>25,979 matches. 9 notebooks. 2 ML models. Power BI dashboard. Proved home advantage holds across 30 seasons of Premier League data.</p>
-        <div class="tag-group" style="margin-top:1rem;">
-          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">ML</span>
-        </div>
-        <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;">
-          <a href="https://github.com/Minga17/soccer-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a href="https://app.powerbi.com/links/wNim_IbQmj?ctid=6f344524-0aa9-4416-89d6-7f1bb85a1364&pbi_source=linkShare" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.4);text-decoration:none;"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="project.html" class="cta-btn primary">View All 11 Projects <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </div>
+    <p class="body-text">Six completed data projects. Real datasets. Real findings. All published on GitHub and Kaggle.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem;">
 
-  <!-- ── PROJECT FILES ── -->
-  <div class="section-wrap fade-in" id="files">
-    <div class="section-eyebrow">Grab the Files</div>
-    <h2>Notebooks, Charts &amp; <em>Data</em></h2>
-    <p class="body-text">Every project below is fully public. Jupyter notebooks, chart images and clean CSVs are all there. No request needed, just click through to GitHub.</p>
-    <div class="card-grid" style="margin-top:2rem;">
-      <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
-        <div class="card-icon">📊</div>
-        <h3>Retail Sales Analysis</h3>
-        <p>Notebook · 4 Charts · CSV</p>
-        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
-      </a>
-      <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
-        <div class="card-icon">⚽</div>
-        <h3>Premier League Analysis</h3>
-        <p>Notebook · 4 Charts</p>
-        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
-      </a>
-      <a href="https://github.com/Minga17/covid19-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
-        <div class="card-icon">🦠</div>
-        <h3>COVID-19 Global Trends</h3>
-        <p>Notebook · 4 Charts · CSV</p>
-        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
-      </a>
-      <a href="https://github.com/Minga17/netflix-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
-        <div class="card-icon">🎬</div>
-        <h3>Netflix Content Analysis</h3>
-        <p>Notebook · 4 Charts · CSV</p>
-        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
-      </a>
-      <a href="https://github.com/Minga17/soccer-analysis" target="_blank" class="card" style="text-decoration:none;display:block;">
-        <div class="card-icon">🏆</div>
-        <h3>Soccer Intelligence Dashboard</h3>
-        <p>9 Notebooks · Power BI Dashboard</p>
-        <div style="margin-top:1rem;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);"><i class="fa-brands fa-github"></i> View on GitHub</div>
-      </a>
+      <div class="card" style="border-left:none;padding:0;overflow:hidden;">
+        <img src="/images/chart1_monthly_trend.png" alt="Retail Sales chart" style="width:100%;height:160px;object-fit:cover;display:block;background:rgba(255,255,255,0.03);" onerror="this.style.display='none'" />
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;">Retail · Python · Pandas</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;text-transform:none;letter-spacing:0;">Retail Sales Analysis</h3>
+          <div style="font-size:1.6rem;font-family:'DM Serif Display',serif;color:var(--gold);margin-bottom:0.3rem;">$2.3M</div>
+          <p style="font-size:0.88rem;color:rgba(245,240,232,0.45);line-height:1.6;margin-bottom:1rem;">9,994 rows analysed. Found $22k in hidden losses across 3 product categories running at negative profit.</p>
+          <div style="display:flex;gap:0.8rem;">
+            <a href="https://github.com/Minga17/retail-sales-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://www.kaggle.com/code/mingangolo/retailsale" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.35);text-decoration:none;"><i class="fa-solid fa-database"></i> Kaggle</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:none;padding:0;overflow:hidden;">
+        <img src="/images/chart1_global_trend.png" alt="COVID-19 chart" style="width:100%;height:160px;object-fit:cover;display:block;background:rgba(255,255,255,0.03);" onerror="this.style.display='none'" />
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;">Global · Python · Time Series</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;text-transform:none;letter-spacing:0;">COVID-19 Global Trends</h3>
+          <div style="font-size:1.6rem;font-family:'DM Serif Display',serif;color:var(--gold);margin-bottom:0.3rem;">306,429 rows</div>
+          <p style="font-size:0.88rem;color:rgba(245,240,232,0.45);line-height:1.6;margin-bottom:1rem;">228 countries. 2.12% global death rate. 83.2% recovery rate. Sudan highest death rate at 7.4%.</p>
+          <div style="display:flex;gap:0.8rem;">
+            <a href="https://github.com/Minga17/covid19-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://www.kaggle.com/code/mingangolo/covid19-analysis-ipynb" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.35);text-decoration:none;"><i class="fa-solid fa-database"></i> Kaggle</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="border-left:none;padding:0;overflow:hidden;">
+        <img src="/images/dashboard.png" alt="Soccer Dashboard" style="width:100%;height:160px;object-fit:cover;display:block;background:rgba(255,255,255,0.03);" onerror="this.style.display='none'" />
+        <div style="padding:1.5rem;">
+          <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem;">ML · SQL · Power BI · 9 Notebooks</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;text-transform:none;letter-spacing:0;">Soccer Intelligence Dashboard</h3>
+          <div style="font-size:1.6rem;font-family:'DM Serif Display',serif;color:var(--gold);margin-bottom:0.3rem;">25,979 matches</div>
+          <p style="font-size:0.88rem;color:rgba(245,240,232,0.45);line-height:1.6;margin-bottom:1rem;">2 ML models. Live Power BI dashboard. Messi beats Ronaldo 6-5 on attributes. Ligue 1 most competitive league.</p>
+          <div style="display:flex;gap:0.8rem;">
+            <a href="https://github.com/Minga17/soccer-analysis" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber);text-decoration:none;"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://app.powerbi.com/links/wNim_IbQmj?ctid=6f344524-0aa9-4416-89d6-7f1bb85a1364&pbi_source=linkShare" target="_blank" style="font-family:'Syne',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:rgba(245,240,232,0.35);text-decoration:none;"><i class="fa-solid fa-chart-pie"></i> Live Dashboard</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="/project.html" class="cta-btn primary">View All 12 Projects <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 
@@ -687,7 +551,8 @@
   <div class="contact-section fade-in">
     <div class="section-eyebrow" style="justify-content:center;">Open to Conversations</div>
     <h2>Let's <em>Connect</em></h2>
-    <p>I am currently studying at Metropolitan Community College and working toward my Associate's Degree. I am not yet in full job search mode but I am always open to conversations, connections and opportunities worth knowing about. If you are working in data or know someone who is, feel free to reach out. The best things often start with a simple conversation.</p>
+    <p>I am currently studying at Metropolitan Community College and working toward my Associate's Degree. I am open to conversations, connections and opportunities. The best things often start with a simple message.</p>
+    <p style="font-family:'Syne',sans-serif;font-size:0.85rem;color:rgba(212,130,10,0.7);margin-bottom:0.5rem;"><i class="fa-solid fa-envelope"></i> &nbsp;mingangolo@outlook.com</p>
     <div class="cta-group" style="justify-content:center;">
       <a href="https://www.linkedin.com/in/minga17" target="_blank" class="cta-btn primary"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
       <a href="mailto:mingangolo@outlook.com" class="cta-btn ghost"><i class="fa-solid fa-envelope"></i> Email Me</a>
@@ -716,9 +581,9 @@
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links-list">
           <li><a href="/#about">Profile</a></li>
-          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/project.html" class="active">All Projects</a></li>
           <li><a href="/#skills">Skills</a></li>
-          <li><a href="/#vision">Vision</a></li>
+          <li><a href="/#featured">Projects</a></li>
         </ul>
       </div>
 
@@ -730,7 +595,7 @@
           <li><a href="https://www.linkedin.com/in/minga17" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
           <li><a href="https://www.kaggle.com/mingangolo" target="_blank"><i class="fa-solid fa-database"></i> Kaggle</a></li>
           <li><a href="https://x.com/mingangolo17s?s=11" target="_blank"><i class="fa-brands fa-x-twitter"></i> Twitter</a></li>
-          <li><a href="https://instagram.com/minga_17" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.instagram.com/minga17" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
           <li><a href="#"><i class="fa-solid fa-location-dot"></i> Omaha, NE, USA</a></li>
         </ul>
       </div>

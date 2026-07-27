@@ -913,7 +913,7 @@
     <ul class="nav-links">
       <li><a href="/">Profile</a></li>
       <li><a href="/#skills">Skills</a></li>
-      <li><a href="/#vision">Vision</a></li>
+      <li><a href="/#skills">Skills</a></li>
       <li><a href="/project.html" class="active">Projects</a></li>
     </ul>
     <div class="nav-social">
@@ -1205,7 +1205,7 @@
           <li><a href="/">Profile</a></li>
           <li><a href="/project.html">Projects</a></li>
           <li><a href="/#skills">Skills</a></li>
-          <li><a href="/#vision">Vision</a></li>
+          <li><a href="/#skills">Skills</a></li>
         </ul>
       </div>
 
@@ -1353,6 +1353,7 @@
         </div>` : '';
 
       const cardId = `card-body-${p.number}`;
+      const defaultOpen = p.status === 'done';
 
       return `
         <div class="project-card ${sClass} fade-in" data-status="${p.status}" data-category="${p.type}"
@@ -1368,10 +1369,10 @@
             <div class="project-category">${p.category || ''}</div>
             <h2 class="project-title">${p.title}</h2>
             ${progressHtml}
-            <button class="expand-btn" onclick="toggleCard('${cardId}', this)">
-              <span class="expand-label">Read More</span> <i class="fa-solid fa-chevron-down"></i>
+            <button class="expand-btn ${defaultOpen ? 'open' : ''}" onclick="toggleCard('${cardId}', this)">
+              <span class="expand-label">${defaultOpen ? 'Show Less' : 'Read More'}</span> <i class="fa-solid fa-chevron-down"></i>
             </button>
-            <div class="card-body-collapse collapsed" id="${cardId}">
+            <div class="card-body-collapse ${defaultOpen ? 'expanded' : 'collapsed'}" id="${cardId}">
               ${problemHtml}
               ${didHtml}
               ${insightsHtml}
