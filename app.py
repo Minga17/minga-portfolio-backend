@@ -69,6 +69,10 @@ def media():
 def media_no_ext():
     return send_from_directory('.', 'media.html')
 
+@app.route('/static/cv/<path:filename>')
+def serve_cv(filename):
+    return send_from_directory('static/cv', filename)
+
 @app.route('/static/js/api.js')
 def serve_api_js():
     return send_from_directory('static/js', 'api.js')
@@ -207,4 +211,4 @@ def get_contacts():
 # ─────────────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5000)s
