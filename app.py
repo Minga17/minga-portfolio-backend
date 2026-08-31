@@ -11,7 +11,24 @@ CORS(app)
 
 init_db()
 
-# ── SERVE STATIC HTML FILES ──────────────────────────────────────────────────
+
+def safe_json_loads(value, default=None):
+    """Safely parse a JSON string from the database.
+
+    Returns default (or [] if not specified) on None, empty string,
+    or invalid JSON instead of raising an exception.
+    """
+    if default is None:
+        default = []
+    if not value:
+        return default
+    try:
+        return json.loads(value)
+    except (json.JSONDecodeError, TypeError):
+        return default
+
+
+# 🔽 SERVER STATIC HTML FILES 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/')
 def home():
@@ -81,7 +98,7 @@ def serve_api_js():
 def images(filename):
     return send_from_directory('images', filename)
 
-# ── API: PROJECTS ─────────────────────────────────────────────────────────────
+# 🔽 API: PROJECTS 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/api/projects', methods=['GET'])
 def get_projects():
@@ -109,8 +126,8 @@ def get_projects():
     projects = []
     for row in rows:
         p = dict(row)
-        p['insights'] = json.loads(p['insights'] or '[]')
-        p['tags']     = json.loads(p['tags']     or '[]')
+        p['insights'] = safe_json_loads(p.get('insights'))
+        p['tags']     = safe_json_loads(p.get('tags'))
         projects.append(p)
 
     return jsonify(projects)
@@ -124,11 +141,11 @@ def get_project(project_id):
     if row is None:
         return jsonify({'error': 'Not found'}), 404
     p = dict(row)
-    p['insights'] = json.loads(p['insights'] or '[]')
-    p['tags']     = json.loads(p['tags']     or '[]')
+    p['insights'] = safe_json_loads(p.get('insights'))
+    p['tags']     = safe_json_loads(p.get('tags'))
     return jsonify(p)
 
-# ── API: PAGE VIEWS ──────────────────────────────────────────────────────────
+# 🔽 API: PAGE VIEWS 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/api/pageview', methods=['POST'])
 def log_pageview():
@@ -136,7 +153,7 @@ def log_pageview():
     page    = data.get('page', 'unknown')
     ip      = request.remote_addr or 'unknown'
     ip_hash = hashlib.md5(ip.encode()).hexdigest()
-    ts      = datetime.datetime.utcnow().isoformat()
+    ts      = datetime.datetime.now(datetime.UTC).isoformat()
 
     db = get_db()
     db.execute(
@@ -147,14 +164,14 @@ def log_pageview():
     db.close()
     return jsonify({'status': 'ok'})
 
-# ── API: CONTACT ─────────────────────────────────────────────────────────────
+# 🔽 API: CONTACT 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/api/contact', methods=['POST'])
 def save_contact():
-    data    = request.get_json() or {}
-    name    = data.get('name', '').strip()
-    email   = data.get('email', '').strip()
-    message = data.get('message', '').strip()
+    data     = request.get_json() or {}
+    name     = data.get('name', '').strip()
+    email    = data.get('email', '').strip()
+    message  = data.get('message', '').strip()
 
     if not name or not email or not message:
         return jsonify({'error': 'All fields required'}), 400
@@ -162,30 +179,30 @@ def save_contact():
     db = get_db()
     db.execute(
         'INSERT INTO contacts (name, email, message, timestamp) VALUES (?, ?, ?, ?)',
-        [name, email, message, datetime.datetime.utcnow().isoformat()]
+        [name, email, message, datetime.datetime.now(datetime.UTC).isoformat()]
     )
     db.commit()
     db.close()
     return jsonify({'status': 'ok', 'message': 'Message saved!'})
 
-# ── API: STATS ────────────────────────────────────────────────────────────────
+# 🔽 API: STATS 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/api/stats', methods=['GET'])
 def get_stats():
     db = get_db()
 
-    total_views     = db.execute('SELECT COUNT(*) FROM pageviews').fetchone()[0]
-    unique_visitors = db.execute('SELECT COUNT(DISTINCT ip_hash) FROM pageviews').fetchone()[0]
-    project_count   = db.execute('SELECT COUNT(*) FROM projects').fetchone()[0]
-    done_count      = db.execute("SELECT COUNT(*) FROM projects WHERE status='done'").fetchone()[0]
-    active_count    = db.execute("SELECT COUNT(*) FROM projects WHERE status='active'").fetchone()[0]
-    planned_count   = db.execute("SELECT COUNT(*) FROM projects WHERE status='planned'").fetchone()[0]
+    total_views      = db.execute('SELECT COUNT(*) FROM pageviews').fetchone()[0]
+    unique_visitors  = db.execute('SELECT COUNT(DISTINCT ip_hash) FROM pageviews').fetchone()[0]
+    project_count    = db.execute('SELECT COUNT(*) FROM projects').fetchone()[0]
+    done_count       = db.execute("SELECT COUNT(*) FROM projects WHERE status='done'").fetchone()[0]
+    active_count     = db.execute("SELECT COUNT(*) FROM projects WHERE status='active'").fetchone()[0]
+    planned_count    = db.execute("SELECT COUNT(*) FROM projects WHERE status='planned'").fetchone()[0]
 
     db.close()
 
     return jsonify({
         'total_views':      total_views,
-        'unique_visitors':  unique_visitors,
+        'unique_visitors':   unique_visitors,
         'project_count':    project_count,
         'done_count':       done_count,
         'active_count':     active_count,
@@ -195,20 +212,23 @@ def get_stats():
         'kaggle_notebooks': 9,
     })
 
-# ── ADMIN: CONTACTS ───────────────────────────────────────────────────────────
+# 🔽 ADMIN: CONTACTS 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 @app.route('/api/admin/contacts', methods=['GET'])
 def get_contacts():
+    admin_key = os.environ.get('ADMIN_KEY')
+    if not admin_key:
+        return jsonify({'error': 'ADMIN_KEY not configured'}), 503
     secret = request.args.get('key', '')
-    if secret != os.environ.get('ADMIN_KEY', 'changeme'):
+    if secret != admin_key:
         return jsonify({'error': 'Unauthorized'}), 401
 
-    db   = get_db()
+    db  = get_db()
     rows = db.execute('SELECT * FROM contacts ORDER BY timestamp DESC').fetchall()
     db.close()
     return jsonify([dict(r) for r in rows])
 
-# ─────────────────────────────────────────────────────────────────────────────
+# 🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽🔽
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
