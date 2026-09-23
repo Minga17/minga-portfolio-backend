@@ -161,11 +161,12 @@
   <div class="page-hero">
     <div class="hero-eyebrow fade-in">Work Files</div>
     <h1 class="fade-in">Charts, Notebooks<br>and <em>Dashboards.</em></h1>
-    <p class="fade-in">Every chart, notebook, dashboard and dataset from my completed projects. All publicly available. Nothing downloads from this page, use the links to access the files on GitHub, Kaggle or Power BI.</p>
+    <p class="fade-in">Every chart, notebook, dashboard and dataset from my completed projects. All publicly available. Nothing downloads from this page — use the links to access the files on GitHub, Kaggle or Power BI.</p>
   </div>
 
   <!-- COUNTER -->
   <div class="media-counter fade-in">
+    <div class="counter-text"><span id="total-count">42</span> files across <span>8</span> projects</div>
     <div class="counter-text">No downloads here · Links go to GitHub, Kaggle or Power BI</div>
   </div>
 
@@ -279,9 +280,101 @@
         </div>
       </div>
 
+      <!-- Job Market Analysis Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart1_top_skills.png" alt="Top Skills Chart" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Job Market</span></div>
+          <div class="card-title">Top Skills in Data Analyst Job Postings</div>
+          <div class="card-desc">SQL leads at 77.8%, Excel at 53.7%, Python at 42.2%. Based on 2,845 real LinkedIn job postings in the USA.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/job-market-analysis" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart2_salary_by_worktype.png" alt="Salary by Work Type" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">Job Market</span></div>
+          <div class="card-title">Median Salary by Work Type</div>
+          <div class="card-desc">Onsite roles pay the most at $110,000 median. Remote pays $92,500. Counterintuitive but data-backed.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/job-market-analysis" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- World Happiness Charts -->
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart1_lollipop_rankings.png" alt="Happiness Rankings" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">World Happiness</span></div>
+          <div class="card-title">Top and Bottom 10 Happiest Countries</div>
+          <div class="card-desc">Denmark leads at 7.546. Burundi lowest at 3.079. Lollipop chart showing 2015–2019 averages across 156 countries.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/world-happines-report" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart2_diverging_regions.png" alt="Regional Happiness" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">World Happiness</span></div>
+          <div class="card-title">Regional Happiness vs Global Average</div>
+          <div class="card-desc">Diverging bar chart showing which regions are above and below the global average of 5.379. Sub-Saharan Africa is 1.191 below.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/world-happines-report" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart3_bubble_gdp_happiness.png" alt="GDP vs Happiness Bubble" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">World Happiness</span></div>
+          <div class="card-title">GDP vs Happiness Score — Bubble Chart</div>
+          <div class="card-desc">156 countries plotted by GDP and happiness. Bubble size represents happiness score. Zimbabwe and DRC highlighted in black.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/world-happines-report" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="chart">
+        <img src="/images/chart4_zimbabwe_drc_trend.png" alt="Zimbabwe DRC Trend" class="card-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="card-placeholder" style="display:none;"><div class="card-placeholder-icon">📊</div><div class="card-placeholder-label">Chart</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-chart">Chart</span><span class="project-badge">World Happiness</span></div>
+          <div class="card-title">Zimbabwe vs DRC Happiness Trend 2015–2019</div>
+          <div class="card-desc">Zimbabwe dropped from rank 115 to 146. Score fell from 4.610 to 3.663 in just 4 years — one of the steepest declines in the dataset.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/world-happines-report" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> View on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
       <!-- ══════════════════════════════════════════
            NOTEBOOKS
       ══════════════════════════════════════════ -->
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">World Happiness</span></div>
+          <div class="card-title">World Happiness Report Analysis</div>
+          <div class="card-desc">782 records across 5 years and 156 countries. Standardised 5 CSV files with different column names. Lollipop, diverging bar and bubble charts.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/world-happines-report" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="notebook">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
+        <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-notebook">Notebook</span><span class="project-badge">Job Market</span></div>
+          <div class="card-title">Data Analyst Job Market Analysis</div>
+          <div class="card-desc">2,845 LinkedIn job postings. Skills frequency analysis, salary by work type, top hiring companies. Built with Python, Pandas and Matplotlib.</div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://www.kaggle.com/code/mingangolo/job-market-analysis" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
 
       <div class="media-card fade-in" data-type="notebook">
         <div class="card-placeholder"><div class="card-placeholder-icon">📓</div><div class="card-placeholder-label">Jupyter Notebook</div></div>
@@ -393,6 +486,16 @@
       <div class="media-card fade-in" data-type="dataset">
         <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
         <div class="card-body">
+          <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">Job Market</span></div>
+          <div class="card-title">LinkedIn Data Analyst Jobs USA — 2,845 rows</div>
+          <div class="card-desc">Real LinkedIn job postings for data analyst roles across the USA. Columns: title, company, description, salary, location, work type, date posted.</div>
+          <a href="https://www.kaggle.com/code/mingangolo/job-market-analysis" target="_blank" class="card-link"><i class="fa-solid fa-database"></i> Access on Kaggle <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="media-card fade-in" data-type="dataset">
+        <div class="card-placeholder"><div class="card-placeholder-icon">📋</div><div class="card-placeholder-label">CSV Dataset</div></div>
+        <div class="card-body">
           <div class="card-badges"><span class="type-badge type-dataset">Dataset</span><span class="project-badge">Retail Sales</span></div>
           <div class="card-title">Sample Superstore — 9,994 rows</div>
           <div class="card-desc">4 years of US retail transactions. Columns: Order ID, Product, Category, Sales, Profit, Region, Date.</div>
@@ -447,6 +550,7 @@
           <li><a href="/">Profile</a></li>
           <li><a href="/project.html">Projects</a></li>
           <li><a href="/media.html">Work Files</a></li>
+          <li><a href="/#skills">Skills</a></li>
         </ul>
       </div>
       <div>
